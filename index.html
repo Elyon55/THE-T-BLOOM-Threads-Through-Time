@@ -2,503 +2,163 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>THE-T BLOOM | Vintage meets Now</title>
-  <!-- Google Fonts + Font Awesome 6 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>THE-T BLOOM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      background: #fffaf7;
-      font-family: 'Inter', sans-serif;
-      color: #2e241f;
-      line-height: 1.5;
-      scroll-behavior: smooth;
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #f8d7e3;
+      color: #111;
     }
 
-    :root {
-      --bloom-pink: #ff9eb5;
-      --bloom-soft-lavender: #e6d9ff;
-      --bloom-sand: #f4e7de;
-      --bloom-dark: #3a2c28;
-      --bloom-gold: #d4af7a;
-      --bloom-coral: #ff7b6e;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
-
-    .hero {
+    header {
+      background-color: #ff69b4;
+      color: white;
       text-align: center;
-      padding: 3rem 1rem 2rem;
-      border-bottom: 2px solid #ffe0d4;
-      margin-bottom: 2.5rem;
-      background: linear-gradient(to bottom, #ffffff, #fffaf5);
-      border-radius: 0 0 48px 48px;
+      padding: 60px 20px;
     }
 
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #c7656b, #f3a683, #b57c6c);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      display: inline-block;
-      margin-bottom: 0.5rem;
-      text-shadow: 2px 2px 12px rgba(255, 140, 150, 0.2);
+    header h1 {
+      font-size: 60px;
+      margin: 0;
+      letter-spacing: 3px;
     }
 
-    .tagline {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: #9b6a5c;
-      background: #fff1ea;
-      display: inline-block;
-      padding: 0.3rem 1.5rem;
-      border-radius: 60px;
-      margin-top: 8px;
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
     }
 
-    .hero-quote {
-      max-width: 620px;
-      margin: 1.5rem auto 0;
-      font-style: italic;
-      font-weight: 400;
-      background: rgba(255, 226, 213, 0.5);
-      padding: 1rem;
-      border-radius: 32px;
-      color: #4f352c;
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
     }
 
-    .intro-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: space-between;
-      margin: 3rem 0;
+    .intro {
+      background: black;
+      color: white;
+      border-radius: 10px;
     }
 
-    .card {
-      background: white;
-      border-radius: 2rem;
-      padding: 1.8rem;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.03), 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: all 0.2s ease;
-      border: 1px solid #ffe0d6;
-      flex: 1;
-      min-width: 220px;
+    .intro p {
+      line-height: 1.6;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: #ffbfab;
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
     }
 
-    .card i {
-      font-size: 2.2rem;
-      color: #e48b7c;
-      margin-bottom: 1rem;
-    }
-
-    .card h3 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .divider-style {
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffb7a3" width="28px" height="28px"><path d="M12 2L15 8.5L22 9.5L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9.5L9 8.5L12 2Z"/></svg>') repeat-x;
-      background-size: 28px;
-      height: 28px;
-      opacity: 0.5;
-      margin: 2rem 0;
-    }
-
-    .two-worlds {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      background: #fef5f0;
-      border-radius: 48px;
-      padding: 2.5rem;
-      margin: 2rem 0;
-      align-items: center;
-    }
-
-    .world-text {
-      flex: 1.2;
-    }
-
-    .world-text h2 {
-      font-size: 2rem;
-      font-family: 'Playfair Display', serif;
-      color: #bc6f5c;
-      border-left: 6px solid #ff9eb5;
-      padding-left: 1.2rem;
-    }
-
-    .world-quote {
-      font-size: 1.25rem;
-      font-weight: 400;
-      background: white;
-      padding: 1rem 1.6rem;
-      border-radius: 40px;
-      margin: 1rem 0;
-      display: inline-block;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
-    }
-
-    .style-badge {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-
-    .badge {
-      background: #ffe4db;
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-
-    .world-gallery {
-      flex: 0.9;
-      display: flex;
-      gap: 0.8rem;
-      justify-content: center;
-    }
-
-    .polaroid {
-      background: white;
-      padding: 0.7rem 0.7rem 1.2rem;
-      border-radius: 20px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.05);
-      text-align: center;
-      width: 130px;
-    }
-
-    .polaroid .placeholder-icon {
-      font-size: 3.5rem;
-      color: #d9c2b2;
-      background: #f5ede7;
+    .grid img {
       width: 100%;
-      border-radius: 16px;
-      padding: 1rem 0;
+      border-radius: 10px;
     }
 
-    .polaroid p {
-      font-size: 0.75rem;
-      margin-top: 0.6rem;
-      font-weight: 500;
-    }
-
-    .evolution {
-      background: #ffffffea;
-      border-radius: 40px;
-      padding: 2rem;
-      margin: 2.5rem 0;
-      border: 1px solid #ffded1;
-    }
-
-    .evolution h3 {
-      font-size: 1.8rem;
-      font-family: 'Playfair Display', serif;
+    .quote {
       text-align: center;
-      margin-bottom: 1.8rem;
+      font-style: italic;
+      background: #ffb6c1;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 30px;
     }
 
-    .timeline {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.8rem;
+    .highlight {
+      background: #ffe4ec;
+      border-radius: 10px;
     }
 
-    .epoch {
-      background: #fff9f5;
-      border-radius: 32px;
-      padding: 1rem 1.2rem;
-      width: 180px;
+    .highlight ul {
+      line-height: 1.8;
+    }
+
+    footer {
+      background: #ff69b4;
+      color: white;
       text-align: center;
-      transition: all 0.2s;
+      padding: 30px;
+      margin-top: 40px;
     }
 
-    .epoch i {
-      font-size: 2rem;
-      color: #e2907d;
-    }
-
-    .epoch strong {
-      display: block;
-      font-size: 1.2rem;
-      margin: 0.5rem 0 0.2rem;
-    }
-
-    .bloom-statement {
-      background: #f9efe8;
-      border-radius: 48px;
+    .title-banner {
       text-align: center;
-      padding: 2.5rem 1.5rem;
-      margin: 2rem 0;
+      font-weight: bold;
+      margin-bottom: 20px;
+      font-size: 22px;
     }
 
-    .bloom-statement p {
-      max-width: 700px;
-      margin: 0 auto 1rem;
-      font-size: 1.2rem;
-    }
-
-    .kinyarwanda {
-      font-weight: 600;
-      font-size: 1.4rem;
-      letter-spacing: -0.2px;
-      background: #ffffffb3;
-      display: inline-block;
-      padding: 0.6rem 2rem;
-      border-radius: 60px;
-      margin-top: 0.8rem;
-      color: #bc5a47;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    }
-
-    .footer {
-      margin-top: 4rem;
-      text-align: center;
-      padding: 2rem 0.5rem;
-      background: #2e241f;
-      color: #f7e9e3;
-      border-radius: 32px 32px 0 0;
-    }
-
-    .footer a {
-      color: #ffbfae;
-      text-decoration: none;
-    }
-
-    .btn-inspire {
-      background: #ffb29b;
-      border: none;
-      padding: 0.7rem 1.6rem;
-      border-radius: 50px;
-      font-weight: 600;
-      font-family: inherit;
-      color: #2e241f;
-      margin-top: 1.2rem;
-      cursor: pointer;
-      transition: 0.2s;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-
-    .btn-inspire:hover {
-      background: #ff9a7c;
-      transform: scale(0.97);
-    }
-
-    @media (max-width: 760px) {
-      .logo {
-        font-size: 2.5rem;
-      }
-      .two-worlds {
-        flex-direction: column;
-      }
-      .timeline {
-        gap: 1rem;
-      }
-      .epoch {
-        width: 150px;
-      }
-      .container {
-        padding: 1.2rem;
-      }
-      .kinyarwanda {
-        font-size: 1.2rem;
-        padding: 0.4rem 1.2rem;
-      }
-    }
   </style>
 </head>
+
 <body>
 
-<div class="container">
-  <!-- Hero section: exactly matches THE-T BLOOM intro -->
-  <div class="hero">
-    <h1 class="logo">THE-T BLOOM</h1>
-    <div class="tagline">where vintage meets now.</div>
-    <p style="margin-top: 1rem; font-weight: 500;">🌸 Y2K nostalgia meets bold modern trends<br> Fashion as self-expression & confidence</p>
-    <div class="hero-quote">
-      <i class="fas fa-star" style="color:#ff9eb5; font-size:0.9rem;"></i> 
-      Every outfit tells your story — A mix of timeless pieces + fresh aesthetics
-      <i class="fas fa-star" style="color:#ff9eb5; font-size:0.9rem;"></i>
-    </div>
-    <p style="margin-top: 0.8rem; font-size: 0.9rem;">Stay bold. Stay bright. Keep blooming 🌸<br> — Editor-in-Chief, Tianah Gaila 🎀</p>
+<header>
+  <h1>THE-T BLOOM</h1>
+  <p>Where vintage meets now 🌸</p>
+</header>
+
+<section class="intro">
+  <h2>Welcome 💗</h2>
+  <p>
+    Y2K nostalgia meets bold modern trends.<br><br>
+
+    🎀 Fashion as self-expression & confidence<br>
+    🌸 Every outfit tells your story<br>
+    💖 A mix of timeless pieces + fresh aesthetics<br><br>
+
+    Dive in, get inspired, and stay true to you ✨<br>
+    Stay bold. Stay bright. Keep blooming 🌷
+  </p>
+</section>
+
+<section>
+  <div class="title-banner">Different, but Fashion 🎀</div>
+
+  <div class="grid">
+    <img src="https://via.placeholder.com/300x400">
+    <img src="https://via.placeholder.com/300x400">
+    <img src="https://via.placeholder.com/300x400">
   </div>
 
-  <!-- Different, but Fashion ✨ block -->
-  <div style="text-align: center; margin: 1rem 0 0.5rem;">
-    <span style="background: #ffece4; padding: 0.3rem 2rem; border-radius: 60px; font-weight: 500; display: inline-block;">
-      ✨ Different, but Fashion ✨
-    </span>
-  </div>
-  <div style="max-width: 720px; margin: 1rem auto 0; text-align: center; background: #fff5ef; border-radius: 32px; padding: 1.2rem;">
-    <p style="font-size: 1.1rem;">Fashion evolves over time 🧡, shaped by different voices, cultures, and identities. This collection celebrates diverse styles and the ever-changing world of fashion 🏠</p>
+  <p style="margin-top:20px;">
+    Fashion evolves over time 🌸, shaped by different voices, cultures, and identities.
+    This collection celebrates diverse styles and the ever-changing world of fashion 💗
+  </p>
+</section>
+
+<section class="highlight">
+  <div class="title-banner">Two Worlds of Style 🌍✨</div>
+
+  <div class="grid">
+    <img src="https://via.placeholder.com/300x400">
+    <img src="https://via.placeholder.com/300x400">
+    <img src="https://via.placeholder.com/300x400">
   </div>
 
-  <!-- Two Worlds of Style 🎭 section from brief -->
-  <div class="two-worlds">
-    <div class="world-text">
-      <h2>Two Worlds of Style 🎭</h2>
-      <div class="world-quote">
-        <i class="fas fa-quote-left" style="margin-right: 6px; color:#e07a64;"></i> 
-        We all dress differently, but we all express something true about ourselves. — Unknown
-      </div>
-      <div class="style-badge">
-        <span class="badge"><i class="fas fa-tshirt"></i> Vintage grunge</span>
-        <span class="badge"><i class="fas fa-futbol"></i> Y2K revival</span>
-        <span class="badge"><i class="fas fa-feather-alt"></i> Boho dream</span>
-        <span class="badge"><i class="fas fa-city"></i> Modern minimalist</span>
-      </div>
-      <p style="margin-top: 1rem;">Vintage silhouettes collide with futuristic fabrics — every piece is a dialogue between eras. Because fashion is a living, breathing art.</p>
-    </div>
-    <div class="world-gallery">
-      <div class="polaroid">
-        <div class="placeholder-icon"><i class="fas fa-crown"></i></div>
-        <p>vintage <br>glam</p>
-      </div>
-      <div class="polaroid">
-        <div class="placeholder-icon"><i class="fas fa-sunglasses"></i></div>
-        <p>Y2K <br>bold</p>
-      </div>
-      <div class="polaroid">
-        <div class="placeholder-icon"><i class="fas fa-leaf"></i></div>
-        <p>organic <br>bloom</p>
-      </div>
-    </div>
+  <div class="quote">
+    “We all dress differently, but we all express something true about ourselves.”
   </div>
+</section>
 
-  <!-- Fashion reflects culture, diversity section (central philosophy) -->
-  <div class="intro-grid">
-    <div class="card">
-      <i class="fas fa-globe-asia"></i>
-      <h3>Culture & Heritage</h3>
-      <p>Fashion reflects culture, diversity, and change across time — inspired by global traditions, street style, and avant-garde voices.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-palette"></i>
-      <h3>Creative Evolution</h3>
-      <p>It continues to evolve through creativity and expression, mixing rebellious silhouettes with delicate romantic details.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-book-open"></i>
-      <h3>Every Style Speaks</h3>
-      <p>Every style carries its own story and meaning — from nostalgic corsets to oversized blazers, your look defines your power.</p>
-    </div>
-  </div>
+<section>
+  <ul>
+    <li>🌍 Fashion reflects culture, diversity, and change across time</li>
+    <li>✨ It continues to evolve through creativity and expression</li>
+    <li>🌸 Every style carries its own story and meaning</li>
+    <li>💗 THE-T BLOOM — where every style speaks</li>
+  </ul>
+</section>
 
-  <!-- Main brand statement: THE-T BLOOM — where every style speaks... -->
-  <div class="bloom-statement">
-    <i class="fas fa-seedling" style="font-size: 2rem; color:#e48e7a;"></i>
-    <p><strong>THE-T BLOOM</strong> — where every style speaks, every look blooms, and fashion never stops evolving 🥰</p>
-    <!-- CORRECTED: Komeza ube wowe (thank you for the note!) -->
-    <div class="kinyarwanda">
-      <i class="fas fa-heart" style="color:#ff8c6b;"></i> Komeza ube wowe ❤️
-    </div>
-    <p style="margin-top: 1rem; font-size: 0.95rem;">Thank you for visiting <strong>THE-T BLOOM</strong><br> — Editor-in-Chief, Tianah Gaila 🎀</p>
-    <button class="btn-inspire" id="inspireBtn"><i class="fas fa-magic"></i> get your daily bloom</button>
-    <div id="inspireMsg" style="margin-top: 1rem; font-weight: 400; font-size: 0.85rem; color:#a25f4b;"></div>
-  </div>
-
-  <!-- evolution timeline - celebrating diverse styles & change -->
-  <div class="evolution">
-    <h3>🌺 Fashion Through Eras: A Tapestry of Voices</h3>
-    <div class="timeline">
-      <div class="epoch"><i class="fas fa-history"></i><strong>1920s</strong><span>Flapper & freedom</span></div>
-      <div class="epoch"><i class="fas fa-music"></i><strong>1960s</strong><span>Mod & counterculture</span></div>
-      <div class="epoch"><i class="fas fa-tape"></i><strong>1980s</strong><span>Power suits & punk</span></div>
-      <div class="epoch"><i class="fas fa-mobile-alt"></i><strong>Y2K</strong><span>Low-rise & metallics</span></div>
-      <div class="epoch"><i class="fas fa-chart-line"></i><strong>Now</strong><span>Gender-fluid & vintage remix</span></div>
-    </div>
-    <p style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem;">🕊️ Each era brought new perspectives — THE-T BLOOM honors all of them</p>
-  </div>
-
-  <!-- extra interactive: featured quote + cultural note -->
-  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; margin: 2rem 0;">
-    <div style="background: #fff1ea; border-radius: 28px; padding: 1.4rem; flex:1; text-align:center;">
-      <i class="fas fa-comment-dots" style="font-size: 2rem; color:#e27e66;"></i>
-      <p style="margin-top: 0.5rem;">“Fashion is the armor to survive the reality of everyday life.” <br> — Bill Cunningham</p>
-    </div>
-    <div style="background: #fff1ea; border-radius: 28px; padding: 1.4rem; flex:1; text-align:center;">
-      <i class="fas fa-users" style="font-size: 2rem; color:#e27e66;"></i>
-      <p>Celebrating African voices, Asian street style, Latin heat, and queer brilliance — global fashion family 🎀</p>
-    </div>
-  </div>
-  
-  <div class="divider-style"></div>
-
-  <!-- final note: diversity, identity, change -->
-  <div style="text-align: center; margin: 1rem 0 2rem;">
-    <p style="font-size: 1rem; max-width: 800px; margin: 0 auto;">🌸 <strong>Fashion evolves over time</strong>, shaped by different voices, cultures, and identities. This collection celebrates diverse styles and the ever-changing world of fashion — vintage essence, future spirit. 💗</p>
-    <p style="margin-top: 0.8rem;">⭐ Every outfit tells your story — keep blooming ⭐</p>
-  </div>
-</div>
-
-<footer class="footer">
-  <p><i class="fas fa-heart" style="color:#ffae9b;"></i> THE-T BLOOM — where vintage meets now, and style has no borders 🌸</p>
-  <p style="font-size: 0.8rem; margin-top: 8px;">© 2025 THE-T BLOOM | Editor-in-Chief Tianah Gaila 🎀 | Stay bold. Stay bright.</p>
-  <p style="margin-top: 6px;"><a href="#">#BLOOMwithPRIDE</a> · <a href="#">Express yourself</a></p>
-  <p style="font-size: 0.75rem; margin-top: 8px;"><i class="fas fa-smile-wink"></i> Komeza ube wowe — keep being you, always.</p>
+<footer>
+  <p>Komeza ube wowe 💕</p>
+  <p>Thank you for visiting THE-T BLOOM</p>
+  <p>— Editor-in-Chief, Tianah Gaila ✨</p>
 </footer>
-
-<script>
-  // interactive button "get your daily bloom" — shows random style affirmation
-  const inspireBtn = document.getElementById('inspireBtn');
-  const inspireMsgDiv = document.getElementById('inspireMsg');
-  const affirmations = [
-    "✨ Your style is your silent superpower — wear it loud!",
-    "🌸 Vintage soul or modern edge? Both bloom in you.",
-    "💖 Fashion has no rules: mix Y2K tops with tailored trousers today.",
-    "🎀 Confidence is the best accessory — and you own it.",
-    "🌼 Every outfit blooms when it reflects who you truly are.",
-    "🧡 Komeza ube wowe! Stay authentic, stay iconic.",
-    "🌟 From streetwear to silk — your story deserves the spotlight.",
-    "🕊️ Fashion evolves, and so do you. Embrace change with grace.",
-    "💫 Be bold, be bright, and always bloom — just like THE-T BLOOM."
-  ];
-  function getRandomBloom() {
-    const randomIndex = Math.floor(Math.random() * affirmations.length);
-    return affirmations[randomIndex];
-  }
-  inspireBtn.addEventListener('click', () => {
-    const msg = getRandomBloom();
-    inspireMsgDiv.innerHTML = `<i class="fas fa-spa"></i> ${msg} <i class="fas fa-spa"></i>`;
-    inspireMsgDiv.style.opacity = '0';
-    inspireMsgDiv.style.transform = 'translateY(5px)';
-    setTimeout(() => {
-      inspireMsgDiv.style.transition = 'all 0.25s ease';
-      inspireMsgDiv.style.opacity = '1';
-      inspireMsgDiv.style.transform = 'translateY(0px)';
-    }, 10);
-  });
-  // small console greeting with the corrected phrase
-  console.log("🌸 THE-T BLOOM — where every style speaks, every look blooms. Komeza ube wowe! 🌸");
-</script>
 
 </body>
 </html>
