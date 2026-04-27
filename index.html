@@ -10,171 +10,171 @@
 <style>
 body {
   margin: 0;
-  background: #f7dbe5;
   font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  background: #f7dbe5;
 }
 
-/* HEADINGS */
-h1, h2 {
-  font-family: 'Great Vibes', cursive;
-  color: #ff4fa3;
-}
-
-/* HERO */
-.hero {
-  background: #ff7eb9;
-  padding: 60px;
-  position: relative;
-  color: white;
-}
-
-/* GOLD DECOR */
-.gold {
-  color: gold;
-}
-
-/* FLOATING STICKERS */
-.sticker {
-  position: absolute;
-  width: 80px;
-  animation: float 4s infinite alternate;
-}
-
-@keyframes float {
-  from { transform: translateY(0); }
-  to { transform: translateY(15px); }
-}
-
-/* SECTION */
-.section {
-  padding: 40px;
-}
-
-/* BLACK SECTION */
-.dark {
-  background: black;
-  color: white;
-  position: relative;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.grid img {
+/* FULL PAGE SECTIONS */
+.page {
   width: 100%;
-  border-radius: 10px;
-  transition: 0.3s;
+  height: 100vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
 }
 
-.grid img:hover {
-  transform: scale(1.05) rotate(2deg);
-}
-
-/* COLLAGE */
-.collage img {
+/* DARK OVERLAY (only where needed) */
+.overlay {
   position: absolute;
-  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
 }
 
-/* QUOTE */
-.quote {
-  background: #ff69b4;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-style: italic;
+/* COVER TEXT */
+.cover-text {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  color: #ffb6d9;
 }
 
-/* FINAL */
-.final {
-  background: #f2d1dc;
-  text-align: center;
-  padding: 40px;
-  color: #ff4fa3;
+.cover-text h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 90px;
 }
 
 /* BUTTON */
 .btn {
-  background: gold;
-  padding: 10px 20px;
-  border-radius: 20px;
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 20px;
+  background: gold;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
 }
-</style>
-</head>
 
+.btn:hover {
+  background: hotpink;
+  color: white;
+}
+
+/* FINAL PAGE */
+.final {
+  height: 100vh;
+  background: #f7dbe5;
+  position: relative;
+  text-align: center;
+  padding-top: 100px;
+  color: #ff4fa3;
+}
+
+/* STICKER BACKGROUND */
+.bg-sticker {
+  position: absolute;
+  width: 200px;
+  opacity: 0.25;
+  animation: float 6s infinite alternate;
+}
+
+.bg1 { top: 20px; left: 20px; }
+.bg2 { bottom: 20px; right: 20px; }
+.bg3 { top: 50%; left: 60%; }
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(20px); }
+}
+
+.final h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 50px;
+}
+<//* ✨ SPARKLE */
+.sparkle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, gold 0%, hotpink 60%, transparent 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkleFade 0.8s linear forwards;
+  z-index: 9999;
+}
+
+@keyframes sparkleFade {
+  from {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.3) translateY(-15px);
+    opacity: 0;
+  }
+}>
+</head>
+<script>
+document.addEventListener("mousemove", function(e) {
+  const sparkle = document.createElement("div");
+  sparkle.className = "sparkle";
+
+  sparkle.style.left = e.clientX + "px";
+  sparkle.style.top = e.clientY + "px";
+
+  document.body.appendChild(sparkle);
+
+  setTimeout(() => {
+    sparkle.remove();
+  }, 800);
+});
+</script>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>THE-T BLOOM</h1>
-  <p>Where vintage meets now ✨</p>
+<!-- PAGE 1: COVER -->
+<section class="page" style="background-image:url('images/picture3.png')">
+  <div class="overlay"></div>
 
-  <!-- STICKERS -->
-  <img src="images/disco.png" class="sticker" style="right:20px; top:20px;">
-  <img src="images/flower.png" class="sticker" style="left:20px; bottom:20px;">
-</section>
+  <div class="cover-text">
+    <h1>THE-T BLOOM</h1>
+    <p>Where vintage meets now 💗</p>
 
-<!-- INTRO -->
-<section class="dark section">
-  <h2>Welcome 💗</h2>
-
-  <p>
-    ✨ Y2K nostalgia meets bold modern trends<br>
-    🎀 Fashion as self-expression & confidence<br>
-    🌸 Every outfit tells your story<br>
-    💖 A mix of timeless pieces + fresh aesthetics
-  </p>
-
-  <!-- MAIN IMAGE -->
-  <img src="images/picture2.png" style="width:300px; float:right; border-radius:10px;">
-</section>
-
-<!-- DIFFERENT BUT FASHION -->
-<section class="section">
-  <h2>Different, but Fashion 🎀</h2>
-
-  <div class="grid">
-    <img src="images/picture3.png">
-    <img src="images/picture4.png">
-    <img src="images/picture5.png">
-  </div>
-
-  <p>
-    Fashion evolves over time 🌸 shaped by different voices, cultures, and identities.
-  </p>
-</section>
-
-<!-- TWO WORLDS -->
-<section class="section" style="background:#ffb6d9;">
-  <h2>Two Worlds of Style 🌍✨</h2>
-
-  <div class="grid">
-    <img src="images/picture6.png">
-    <img src="images/picture7.png">
-    <img src="images/picture8.png">
-  </div>
-
-  <div class="quote">
-    “We all dress differently, but we all express something true about ourselves.”
+    <a href="#page2" class="btn">Enter ✨</a>
   </div>
 </section>
 
-<!-- FINAL -->
+<!-- PAGE 2 -->
+<section id="page2" class="page" style="background-image:url('images/picture4.png')">
+</section>
+
+<!-- PAGE 3 -->
+<section class="page" style="background-image:url('images/picture3.png')">
+</section>
+
+<!-- PAGE 4 -->
+<section class="page" style="background-image:url('images/picture6.png')">
+</section>
+
+<!-- FINAL PAGE -->
 <section class="final">
-  <p>🌍 Fashion reflects culture, diversity, and change across time</p>
-  <p>✨ It continues to evolve through creativity and expression</p>
-  <p>🌸 Every style carries its own story</p>
+
+  <!-- STICKER BACKGROUND -->
+  <img src="images/picture7.png" class="bg-sticker bg1">
+  <img src="images/picture8.png" class="bg-sticker bg2">
+  <img src="images/picture7.png" class="bg-sticker bg3">
 
   <h2>THE-T BLOOM 💗</h2>
-  <p>Komeza ube wowe ✨</p>
 
-  <div class="btn">Thank you for visiting</div>
+  <p>🌍 Fashion reflects culture, diversity, and change</p>
+  <p>✨ It continues to evolve through creativity</p>
+  <p>🌸 Every style tells a story</p>
+
+  <h3>Komeza ube wowe 💕</h3>
+
+  <p>Thank you for visiting — Editor-in-Chief, Tianah Gaila ✨</p>
+
 </section>
 
 </body>
