@@ -1,505 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>THE-T BLOOM | Vintage Meets Now</title>
-    <!-- Google Fonts & Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<title>THE-T BLOOM</title>
 
-        body {
-            background: #fef7f2;
-            font-family: 'Inter', sans-serif;
-            color: #2c2418;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
 
-        /* custom scroll */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f3e9e0;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #e7b2a5;
-            border-radius: 12px;
-        }
+<style>
+body {
+  margin: 0;
+  background: #f7dbe5;
+  font-family: 'Poppins', sans-serif;
+}
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 2rem 2rem 4rem;
-        }
+/* HEADINGS */
+h1, h2 {
+  font-family: 'Great Vibes', cursive;
+  color: #ff4fa3;
+}
 
-        section {
-            margin-bottom: 5rem;
-            position: relative;
-        }
+/* HERO */
+.hero {
+  background: #ff7eb9;
+  padding: 60px;
+  position: relative;
+  color: white;
+}
 
-        /* animation effects */
-        @keyframes floatSoft {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-6px); }
-        }
-        @keyframes gentlePulse {
-            0% { opacity: 0.7; transform: scale(0.98);}
-            100% { opacity: 1; transform: scale(1);}
-        }
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
+/* GOLD DECOR */
+.gold {
+  color: gold;
+}
 
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .hover-lift:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
-        }
+/* FLOATING STICKERS */
+.sticker {
+  position: absolute;
+  width: 80px;
+  animation: float 4s infinite alternate;
+}
 
-        /* Hero / Canva style header */
-        .hero {
-            text-align: center;
-            padding: 3rem 1rem 2rem;
-            background: linear-gradient(145deg, #fff6ef, #ffece1);
-            border-radius: 64px 64px 48px 48px;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 12px 28px -10px rgba(0,0,0,0.06);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: "🌸💗🎀";
-            font-size: 170px;
-            opacity: 0.06;
-            position: absolute;
-            bottom: -40px;
-            right: -20px;
-            pointer-events: none;
-            font-family: monospace;
-        }
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #c55a42, #e28a6f, #f3b5a0);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            letter-spacing: -0.02em;
-        }
-        .tagline {
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: #b16e54;
-            background: #fff3e8;
-            display: inline-block;
-            padding: 0.3rem 1.2rem;
-            border-radius: 40px;
-        }
-        .hero p {
-            margin-top: 1.2rem;
-            font-size: 1.1rem;
-            max-width: 620px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #4a3629;
-        }
-        .editor-signature {
-            margin-top: 1.4rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #b87c62;
-        }
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(15px); }
+}
 
-        /* 🌸 Image Gallery — exactly the pictures you named: picture 2.png ... picture 8.png */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 2rem;
-            margin: 2.5rem 0 1rem;
-        }
-        .fashion-card {
-            background: white;
-            border-radius: 36px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
-            cursor: pointer;
-            animation: gentlePulse 0.5s ease-out;
-            backdrop-filter: blur(0px);
-        }
-        .fashion-card:hover {
-            transform: scale(1.02) translateY(-8px);
-            box-shadow: 0 28px 36px -12px rgba(0,0,0,0.2);
-        }
-        .card-img {
-            width: 100%;
-            aspect-ratio: 1 / 1.2;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s ease;
-        }
-        .fashion-card:hover .card-img {
-            transform: scale(1.03);
-        }
-        .card-label {
-            padding: 0.8rem 1rem 1rem;
-            text-align: center;
-            font-weight: 600;
-            background: #ffffffdd;
-            color: #4c3224;
-            font-size: 0.9rem;
-            letter-spacing: 0.3px;
-            font-family: 'Inter', sans-serif;
-        }
+/* SECTION */
+.section {
+  padding: 40px;
+}
 
-        /* two worlds of style block */
-        .two-worlds {
-            background: #ffeae0;
-            border-radius: 60px;
-            padding: 2.5rem;
-            text-align: center;
-            margin: 2rem 0;
-            box-shadow: 0 8px 20px rgba(192, 112, 76, 0.1);
-            transition: 0.2s;
-        }
-        .quote {
-            font-style: italic;
-            font-size: 1.5rem;
-            font-weight: 500;
-            font-family: 'Playfair Display', serif;
-            color: #9f5e46;
-        }
-        .quote-author {
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
+/* BLACK SECTION */
+.dark {
+  background: black;
+  color: white;
+  position: relative;
+}
 
-        /* culture & diversity section */
-        .culture-block {
-            background: #fef1e9;
-            border-radius: 48px;
-            padding: 2rem 2rem;
-            margin: 2rem 0;
-            border-left: 8px solid #f1aa8b;
-            transition: all 0.3s;
-        }
-        .btn-magic {
-            background: none;
-            border: 2px solid #d9896b;
-            padding: 0.6rem 1.6rem;
-            border-radius: 40px;
-            font-weight: 600;
-            color: #c06242;
-            transition: 0.25s;
-            margin-top: 1.2rem;
-            cursor: pointer;
-            font-family: inherit;
-        }
-        .btn-magic:hover {
-            background: #d9896b;
-            color: white;
-            box-shadow: 0 5px 14px rgba(217,137,107,0.4);
-            transform: scale(0.98);
-        }
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
 
-        /* Bloom footer and special effects */
-        .footer-note {
-            text-align: center;
-            padding: 2rem;
-            background: #fff4ed;
-            border-radius: 48px;
-            margin-top: 2rem;
-            border: 1px solid #ffe0d0;
-        }
-        .flower-sparkle {
-            font-size: 1.8rem;
-            display: inline-block;
-            animation: floatSoft 2s infinite ease-in-out;
-        }
-        .kinyarwanda {
-            font-weight: 500;
-            color: #c36a4b;
-            margin-top: 0.8rem;
-        }
-        .stay-bold {
-            font-size: 1.2rem;
-            font-weight: 700;
-            background: linear-gradient(120deg, #c55a42, #eba27e);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
+.grid img {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.3s;
+}
 
-        /* responsive */
-        @media (max-width: 700px) {
-            .container { padding: 1rem 1.2rem 2rem; }
-            .hero h1 { font-size: 2.5rem; }
-            .quote { font-size: 1.2rem; }
-            .gallery-grid { gap: 1rem; }
-        }
+.grid img:hover {
+  transform: scale(1.05) rotate(2deg);
+}
 
-        /* image placeholder fallback styling: if images missing, a gentle pattern shows but they are meant to be used. */
-        .card-img {
-            background: #f3ddd2;
-        }
-    </style>
+/* COLLAGE */
+.collage img {
+  position: absolute;
+  border-radius: 10px;
+}
+
+/* QUOTE */
+.quote {
+  background: #ff69b4;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+}
+
+/* FINAL */
+.final {
+  background: #f2d1dc;
+  text-align: center;
+  padding: 40px;
+  color: #ff4fa3;
+}
+
+/* BUTTON */
+.btn {
+  background: gold;
+  padding: 10px 20px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 10px;
+}
+</style>
 </head>
+
 <body>
-<div class="container">
-    <!-- Hero Section — exactly as per THE-T BLOOM -->
-    <div class="hero">
-        <h1>THE-T BLOOM</h1>
-        <div class="tagline">where vintage meets now.</div>
-        <p>
-            🌸 Y2K nostalgia meets bold modern trends<br>
-            Fashion as self-expression & confidence
-        </p>
-        <p style="font-size:1rem; margin-top:0.8rem;">
-            ★ Every outfit tells your story<br>
-            ★ A mix of timeless pieces + fresh aesthetics
-        </p>
-        <div class="editor-signature">
-            Dive in, get inspired, and stay true to you!<br>
-            Stay bold. Stay bright. Keep blooming 🌸<br>
-            — Editor-in-Chief, Tianah Gaila 🎀
-        </div>
-    </div>
 
-    <!-- Different, but Fashion ✨ block -->
-    <section>
-        <div style="text-align: center; margin-bottom: 1rem;">
-            <h2 style="font-family: 'Playfair Display'; font-size: 2rem; color:#b45a3f;">Different, but Fashion ✨</h2>
-            <p style="max-width: 700px; margin: 0.5rem auto; font-size: 1.05rem;">
-                Fashion evolves over time 🧡, shaped by different voices, cultures, and identities. 
-                This collection celebrates diverse styles and the ever-changing world of fashion 🏠
-            </p>
-        </div>
+<!-- HERO -->
+<section class="hero">
+  <h1>THE-T BLOOM</h1>
+  <p>Where vintage meets now ✨</p>
 
-        <!-- 🌟 GALLERY — All the images you specified: picture 2.png, picture 3.png, picture 4.png, picture 5.png, picture 6.png, picture 7.png, picture 8.png -->
-        <div class="gallery-grid" id="fashionGallery">
-            <!-- picture 2.png -->
-            <div class="fashion-card">
-                <img class="card-img" src="picture 2.png" alt="Fashion look 2" onerror="this.src='https://placehold.co/400x500/fbe9e0/c55a42?text=Style+2'; this.onerror=null;">
-                <div class="card-label">🌸 Vintage Bloom</div>
-            </div>
-            <!-- picture 3.png -->
-            <div class="fashion-card">
-                <img class="card-img" src="picture 3.png" alt="Fashion look 3" onerror="this.src='https://placehold.co/400x500/fbe9e0/c55a42?text=Style+3'; this.onerror=null;">
-                <div class="card-label">🎀 Y2K Edge</div>
-            </div>
-            <!-- picture 4.png -->
-            <div class="fashion-card">
-                <img class="card-img" src="picture 4.png" alt="Fashion look 4" onerror="this.src='https://placehold.co/400x500/fbe9e0/c55a42?text=Style+4'; this.onerror=null;">
-                <div class="card-label">💗 Soft Romance</div>
-            </div>
-            <!-- picture 5.png -->
-            <div class="fashion-card">
-                <img class="card-img" src="picture 5.png" alt="Fashion look 5" onerror="this.src='https://placehold.co/400x500/fbe9e0/c55a42?text=Style+5'; this.onerror=null;">
-                <div class="card-label">✨ Bold Confidence</div>
-            </div>
-            <!-- picture 6.png -->
-            <div class="fashion-card">
-                <img class="card-img" src="picture 6.png" alt="Fashion look 6" onerror="this.src='https://placehold.co/400x500/fbe9e0/c55a42?text=Style+6'; this.onerror=null;">
-                <div class="card-label">🌟 Urban Nostalgia</div>
-            </div>
-            <!-- picture 7.png -->
-            <div class="fashion-card">
-                <img class="card-img" src="picture 7.png" alt="Fashion look 7" onerror="this.src='https://placehold.co/400x500/fbe9e0/c55a42?text=Style+7'; this.onerror=null;">
-                <div class="card-label">🌸 Eternal Glow</div>
-            </div>
-            <!-- picture 8.png -->
-            <div class="fashion-card">
-                <img class="card-img" src="picture 8.png" alt="Fashion look 8" onerror="this.src='https://placehold.co/400x500/fbe9e0/c55a42?text=Style+8'; this.onerror=null;">
-                <div class="card-label">🎀 Modern Muse</div>
-            </div>
-        </div>
-        <p style="text-align: center; margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;"><i class="fas fa-mouse-pointer"></i> hover for gentle lift & zoom effect</p>
-    </section>
+  <!-- STICKERS -->
+  <img src="images/disco.png" class="sticker" style="right:20px; top:20px;">
+  <img src="images/flower.png" class="sticker" style="left:20px; bottom:20px;">
+</section>
 
-    <!-- Two Worlds of Style 🥰 block (exact quote and text) -->
-    <div class="two-worlds">
-        <div class="quote">
-            “We all dress differently, but we all express something true about ourselves.”
-        </div>
-        <div class="quote-author">— Unknown</div>
-        <div style="margin-top: 1rem; font-weight: 500;">✨ Two Worlds of Style 🥰 ✨</div>
-    </div>
+<!-- INTRO -->
+<section class="dark section">
+  <h2>Welcome 💗</h2>
 
-    <!-- Fashion reflects culture, diversity, change section -->
-    <div class="culture-block">
-        <h3 style="font-size: 1.6rem; font-family: 'Playfair Display'; color:#a3573d;">🧡 Fashion reflects culture, diversity, and change across time</h3>
-        <ul style="margin-top: 1rem; list-style-type: none;">
-            <li style="margin-bottom: 0.7rem;">🌸 It continues to evolve through creativity and expression</li>
-            <li style="margin-bottom: 0.7rem;">🎀 Every style carries its own story and meaning</li>
-            <li style="margin-bottom: 0.7rem;">💗 <strong>THE-T BLOOM</strong> — where every style speaks, every look blooms, and fashion never stops evolving 🥰</li>
-        </ul>
-        <button class="btn-magic" id="inspireBtn"><i class="fas fa-seedling"></i> Bloom your inspiration</button>
-        <div id="magicMessage" style="margin-top: 1rem; font-style: italic; color:#af6c50; transition:0.2s;"></div>
-    </div>
+  <p>
+    ✨ Y2K nostalgia meets bold modern trends<br>
+    🎀 Fashion as self-expression & confidence<br>
+    🌸 Every outfit tells your story<br>
+    💖 A mix of timeless pieces + fresh aesthetics
+  </p>
 
-    <!-- Closing signature & special effect (Komeza ube wow) -->
-    <div class="footer-note">
-        <div class="flower-sparkle">🌸💗🎀</div>
-        <p style="margin: 1rem 0 0.5rem; font-size: 1.2rem; font-weight: 600;">Komeza ube wow ❤️</p>
-        <p>Thank you for visiting <strong>THE-T BLOOM</strong></p>
-        <p class="kinyarwanda">— Editor-in-Chief, Tianah Gaila 🎀</p>
-        <div class="stay-bold">Stay bold. Stay bright. Keep blooming 🌸</div>
-        <div style="margin-top: 0.8rem; font-size: 0.75rem;">
-            <i class="fas fa-heart" style="color:#e7a68b;"></i> vintage meets now · every story blooms
-        </div>
-    </div>
-</div>
+  <!-- MAIN IMAGE -->
+  <img src="images/picture2.png" style="width:300px; float:right; border-radius:10px;">
+</section>
 
-<!-- ✨ special effect: floating sparkles + dynamic message + custom glimmer on gallery -->
-<script>
-    (function() {
-        // 1) interactive button: "Bloom your inspiration" — shows a subtle fashion affirmation
-        const inspireBtn = document.getElementById('inspireBtn');
-        const msgDiv = document.getElementById('magicMessage');
-        const messages = [
-            "🌸 Your style is your superpower — let it bloom!",
-            "🎀 Every outfit tells a story, and yours is magnificent.",
-            "💗 Y2K nostalgia + modern edge = timeless confidence.",
-            "✨ Fashion has no limits — express yourself freely!",
-            "🌼 Stay true to you; the world needs your unique sparkle."
-        ];
-        if(inspireBtn && msgDiv) {
-            inspireBtn.addEventListener('click', () => {
-                const randomMsg = messages[Math.floor(Math.random() * messages.length)];
-                msgDiv.innerHTML = `<i class="fas fa-star-of-life"></i> ${randomMsg} <i class="fas fa-star-of-life"></i>`;
-                msgDiv.style.opacity = '0';
-                msgDiv.style.transform = 'translateY(5px)';
-                setTimeout(() => {
-                    msgDiv.style.transition = 'all 0.3s ease';
-                    msgDiv.style.opacity = '1';
-                    msgDiv.style.transform = 'translateY(0)';
-                }, 20);
-                // sparkle effect on the button
-                inspireBtn.style.transform = 'scale(0.96)';
-                setTimeout(() => { inspireBtn.style.transform = ''; }, 150);
-            });
-        }
+<!-- DIFFERENT BUT FASHION -->
+<section class="section">
+  <h2>Different, but Fashion 🎀</h2>
 
-        // 2) add floating "bloom" particles / gentle interactive effect for gallery cards
-        const cards = document.querySelectorAll('.fashion-card');
-        cards.forEach(card => {
-            card.addEventListener('click', (e) => {
-                // tiny ripple: popup alert effect but fun? just add a little console and visual shimmer
-                const label = card.querySelector('.card-label')?.innerText || 'Look';
-                const tempDiv = document.createElement('div');
-                tempDiv.innerText = `✨ ${label} blooms ✨`;
-                tempDiv.style.position = 'fixed';
-                tempDiv.style.bottom = '20px';
-                tempDiv.style.left = '50%';
-                tempDiv.style.transform = 'translateX(-50%)';
-                tempDiv.style.backgroundColor = '#ffe0d0';
-                tempDiv.style.color = '#b15e42';
-                tempDiv.style.padding = '8px 18px';
-                tempDiv.style.borderRadius = '50px';
-                tempDiv.style.fontWeight = 'bold';
-                tempDiv.style.zIndex = '999';
-                tempDiv.style.boxShadow = '0 6px 14px rgba(0,0,0,0.1)';
-                tempDiv.style.fontSize = '0.9rem';
-                tempDiv.style.backdropFilter = 'blur(8px)';
-                tempDiv.style.pointerEvents = 'none';
-                document.body.appendChild(tempDiv);
-                setTimeout(() => {
-                    tempDiv.style.opacity = '0';
-                    tempDiv.style.transition = 'opacity 0.4s';
-                    setTimeout(() => tempDiv.remove(), 500);
-                }, 1200);
-            });
-        });
+  <div class="grid">
+    <img src="images/picture3.png">
+    <img src="images/picture4.png">
+    <img src="images/picture5.png">
+  </div>
 
-        // 3) "special effect" canva-like floating hearts effect on scroll or title? create small floating sakura?
-        // Simple: create occasional floating petals when scrolling? nice touch
-        function createFloatingBloom() {
-            const bloom = document.createElement('div');
-            bloom.innerHTML = ['🌸', '💗', '🎀', '✨', '🌸'][Math.floor(Math.random() * 5)];
-            bloom.style.position = 'fixed';
-            bloom.style.fontSize = (Math.random() * 20 + 16) + 'px';
-            bloom.style.left = Math.random() * window.innerWidth + 'px';
-            bloom.style.bottom = '-20px';
-            bloom.style.opacity = '0.7';
-            bloom.style.pointerEvents = 'none';
-            bloom.style.zIndex = '9999';
-            bloom.style.transition = 'transform 4s linear, opacity 3s ease-out';
-            bloom.style.filter = 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))';
-            document.body.appendChild(bloom);
-            let drift = Math.random() * 60 - 30;
-            requestAnimationFrame(() => {
-                bloom.style.transform = `translateY(-${window.innerHeight + 40}px) translateX(${drift}px) rotate(10deg)`;
-                bloom.style.opacity = '0';
-            });
-            setTimeout(() => bloom.remove(), 4500);
-        }
-        // activate floating gentle flowers every 12 seconds 
-        let interval = setInterval(() => {
-            if (document.visibilityState === 'visible') {
-                createFloatingBloom();
-            }
-        }, 10000);
-        // also on mousemove? optional: but keep light
-        window.addEventListener('load', () => {
-            // small starting animation hero pulse 
-            const hero = document.querySelector('.hero');
-            if(hero) hero.style.animation = 'gentlePulse 0.7s';
-            setTimeout(() => { if(hero) hero.style.animation = ''; }, 700);
-        });
-        // clear interval if needed, but it's okay for vibe
-        // implement image lazy friendly hint: no need, they are already loaded
-        // also ensure if images broken, placeholder shows style names
-        const allImgs = document.querySelectorAll('.card-img');
-        allImgs.forEach(img => {
-            img.addEventListener('error', function(e) {
-                // if image missing, we want to show label inside but keep elegant style (already handled with onerror fallback)
-                // we additionally append a tiny text fallback? already set with placeholder image, but we can set alt good
-                if(!this.src || this.src.includes('placehold')) {
-                    // already replaced: keep consistent
-                }
-            });
-        });
-        
-        // additional: "sparkle on hover" for all buttons and gallery card borders 
-        const style = document.createElement('style');
-        style.textContent = `
-            .fashion-card {
-                transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.2);
-            }
-            .btn-magic, .tagline {
-                transition: all 0.2s;
-            }
-            .hero h1 {
-                background-size: 150% 150%;
-                animation: shimmer 8s infinite linear;
-                background-image: linear-gradient(135deg, #c55a42, #e28a6f, #f3b5a0, #e28a6f);
-                background-clip: text;
-                -webkit-background-clip: text;
-            }
-            @keyframes shimmer {
-                0% { background-position: 0% 0%; }
-                100% { background-position: 200% 0%; }
-            }
-            .culture-block:hover {
-                transform: translateX(4px);
-                background: #ffede3;
-            }
-        `;
-        document.head.appendChild(style);
-    })();
-</script>
+  <p>
+    Fashion evolves over time 🌸 shaped by different voices, cultures, and identities.
+  </p>
+</section>
+
+<!-- TWO WORLDS -->
+<section class="section" style="background:#ffb6d9;">
+  <h2>Two Worlds of Style 🌍✨</h2>
+
+  <div class="grid">
+    <img src="images/picture6.png">
+    <img src="images/picture7.png">
+    <img src="images/picture8.png">
+  </div>
+
+  <div class="quote">
+    “We all dress differently, but we all express something true about ourselves.”
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <p>🌍 Fashion reflects culture, diversity, and change across time</p>
+  <p>✨ It continues to evolve through creativity and expression</p>
+  <p>🌸 Every style carries its own story</p>
+
+  <h2>THE-T BLOOM 💗</h2>
+  <p>Komeza ube wowe ✨</p>
+
+  <div class="btn">Thank you for visiting</div>
+</section>
+
 </body>
 </html>
