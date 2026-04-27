@@ -4,45 +4,43 @@
 <meta charset="UTF-8">
 <title>THE-T BLOOM</title>
 
-<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
 
 <style>
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
   font-family: 'Poppins', sans-serif;
-  scroll-behavior: smooth;
-  background: #f7dbe5;
 }
 
-/* FULL PAGE SECTIONS */
+/* EACH PAGE */
 .page {
-  width: 100%;
   height: 100vh;
-  position: relative;
+  width: 100%;
   background-size: cover;
   background-position: center;
-}
-
-/* DARK OVERLAY (only where needed) */
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.2);
+  scroll-snap-align: start;
+  position: relative;
 }
 
 /* COVER TEXT */
 .cover-text {
   position: absolute;
   top: 30%;
-  left: 10%;
+  left: 8%;
   color: #ffb6d9;
 }
 
 .cover-text h1 {
   font-family: 'Great Vibes', cursive;
   font-size: 90px;
+  margin: 0;
+}
+
+.cover-text p {
+  font-size: 20px;
 }
 
 /* BUTTON */
@@ -54,12 +52,6 @@ body {
   border-radius: 30px;
   text-decoration: none;
   color: black;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: hotpink;
-  color: white;
 }
 
 /* FINAL PAGE */
@@ -75,7 +67,7 @@ body {
 /* STICKER BACKGROUND */
 .bg-sticker {
   position: absolute;
-  width: 200px;
+  width: 180px;
   opacity: 0.25;
   animation: float 6s infinite alternate;
 }
@@ -89,64 +81,37 @@ body {
   to { transform: translateY(20px); }
 }
 
-.final h2 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 50px;
-}
-<//* ✨ SPARKLE */
+/* SPARKLES */
 .sparkle {
   position: fixed;
   width: 8px;
   height: 8px;
-  background: radial-gradient(circle, gold 0%, hotpink 60%, transparent 100%);
+  background: radial-gradient(circle, gold 0%, hotpink 70%, transparent 100%);
   border-radius: 50%;
   pointer-events: none;
   animation: sparkleFade 0.8s linear forwards;
-  z-index: 9999;
 }
 
 @keyframes sparkleFade {
-  from {
-    transform: scale(1) translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: scale(0.3) translateY(-15px);
-    opacity: 0;
-  }
-}>
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.3) translateY(-10px); }
+}
+</style>
 </head>
-<script>
-document.addEventListener("mousemove", function(e) {
-  const sparkle = document.createElement("div");
-  sparkle.className = "sparkle";
 
-  sparkle.style.left = e.clientX + "px";
-  sparkle.style.top = e.clientY + "px";
-
-  document.body.appendChild(sparkle);
-
-  setTimeout(() => {
-    sparkle.remove();
-  }, 800);
-});
-</script>
 <body>
 
-<!-- PAGE 1: COVER -->
+<!-- PAGE 1 (COVER) -->
 <section class="page" style="background-image:url('images/picture3.png')">
-  <div class="overlay"></div>
-
   <div class="cover-text">
     <h1>THE-T BLOOM</h1>
     <p>Where vintage meets now 💗</p>
-
-    <a href="#page2" class="btn">Enter ✨</a>
+    <a href="#p2" class="btn">Enter ✨</a>
   </div>
 </section>
 
 <!-- PAGE 2 -->
-<section id="page2" class="page" style="background-image:url('images/picture4.png')">
+<section id="p2" class="page" style="background-image:url('images/picture4.png')">
 </section>
 
 <!-- PAGE 3 -->
@@ -160,22 +125,33 @@ document.addEventListener("mousemove", function(e) {
 <!-- FINAL PAGE -->
 <section class="final">
 
-  <!-- STICKER BACKGROUND -->
+  <!-- STICKERS -->
   <img src="images/picture7.png" class="bg-sticker bg1">
   <img src="images/picture8.png" class="bg-sticker bg2">
   <img src="images/picture7.png" class="bg-sticker bg3">
 
-  <h2>THE-T BLOOM 💗</h2>
+  <h1 style="font-family:'Great Vibes'; font-size:60px;">THE-T BLOOM 💗</h1>
 
   <p>🌍 Fashion reflects culture, diversity, and change</p>
-  <p>✨ It continues to evolve through creativity</p>
+  <p>✨ Creativity keeps it evolving</p>
   <p>🌸 Every style tells a story</p>
 
-  <h3>Komeza ube wowe 💕</h3>
-
-  <p>Thank you for visiting — Editor-in-Chief, Tianah Gaila ✨</p>
+  <h2>Komeza ube wowe 💕</h2>
 
 </section>
+
+<!-- SPARKLE SCRIPT -->
+<script>
+document.addEventListener("mousemove", function(e) {
+  const s = document.createElement("div");
+  s.className = "sparkle";
+  s.style.left = e.clientX + "px";
+  s.style.top = e.clientY + "px";
+  document.body.appendChild(s);
+
+  setTimeout(() => s.remove(), 800);
+});
+</script>
 
 </body>
 </html>
