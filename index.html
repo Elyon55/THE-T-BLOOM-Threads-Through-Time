@@ -2,10 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title><div class="header">
-  <h1>THE-T BLOOM</h1>
-  <img src="images/picture3.png" class="title-img">
-</div></title>
+<title>THE-T BLOOM</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
 
@@ -13,160 +10,119 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #f7dbe5;
+  scroll-behavior: smooth;
+}
+
+/* HEADER (TITLE + IMAGE) */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: #ffc0cb;
+}
+
+.header h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 60px;
+  margin: 0;
+  color: #ff4fa3;
+}
+
+.title-img {
+  width: 80px;
 }
 
 /* PAGE */
 .page {
   height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+/* COVER TEXT */
+.cover-text {
   padding: 40px;
-  position: relative;
+  color: #ff4fa3;
 }
 
-/* COVER */
-.cover {
-  background: linear-gradient(135deg, hotpink, #ffb6d9);
-  color: white;
-}
-
-/* TITLE */
-.title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 90px;
-}
-
-/* BUTTON */
 .btn {
+  display: inline-block;
   background: gold;
   padding: 10px 20px;
-  border-radius: 25px;
-  display: inline-block;
-  margin-top: 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: black;
+  margin-top: 10px;
 }
 
-/* COLLAGE BOXES */
-.card {
-  width: 200px;
-  height: 260px;
-  background: white;
-  border-radius: 15px;
-  position: absolute;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* ROTATIONS */
-.c1 { top: 120px; left: 40px; transform: rotate(-8deg); }
-.c2 { top: 80px; right: 60px; transform: rotate(6deg); }
-.c3 { bottom: 60px; left: 200px; transform: rotate(3deg); }
-
-/* STICKERS */
-.sticker {
-  position: absolute;
-  font-size: 30px;
-  animation: float 3s infinite alternate;
-}
-
-.s1 { top: 20px; left: 20px; }
-.s2 { bottom: 20px; right: 20px; }
-
-@keyframes float {
-  from { transform: translateY(0); }
-  to { transform: translateY(10px); }
-}
-
-/* DARK PAGE */
-.dark {
-  background: black;
-  color: white;
-}
-
-/* GRID */
-.grid {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.box {
-  flex: 1;
-  height: 200px;
-  background: pink;
-  border-radius: 10px;
-}
-
-/* FINAL */
+/* FINAL PAGE */
 .final {
-  background: #ffe4ec;
+  height: 100vh;
+  background: #f7dbe5;
+  position: relative;
   text-align: center;
+  padding-top: 100px;
+  color: #ff4fa3;
 }
 
-.final h2 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 50px;
+/* STICKER BACKGROUND */
+.bg-sticker {
+  position: absolute;
+  width: 150px;
+  opacity: 0.3;
 }
+
+.bg1 { top: 20px; left: 20px; }
+.bg2 { bottom: 20px; right: 20px; }
+
 </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 -->
-<section class="page cover">
-  <div class="sticker s1">💗</div>
-  <div class="sticker s2">✨</div>
+<!-- HEADER -->
+<div class="header">
+  <h1>THE-T BLOOM</h1>
+  <img src="images/picture3.png" class="title-img">
+</div>
 
-  <h1 class="title">THE-T BLOOM</h1>
-  <p>Where vintage meets now 💕</p>
-
-  <div class="btn">Enter ✨</div>
-
-  <!-- COLLAGE -->
-  <div class="card c1"></div>
-  <div class="card c2"></div>
-  <div class="card c3"></div>
+<!-- PAGE 1 (COVER CONTENT) -->
+<section class="page">
+  <div class="cover-text">
+    <p>Where vintage meets now 💗</p>
+    <a href="#p2" class="btn">Enter</a>
+  </div>
 </section>
 
 <!-- PAGE 2 -->
-<section class="page dark">
-  <h2>Welcome 💗</h2>
-
-  <p>
-    ✨ Y2K nostalgia meets bold modern trends<br>
-    🎀 Fashion is self-expression<br>
-    🌸 Every outfit tells your story
-  </p>
+<section id="p2" class="page" style="background-image:url('images/picture4.png')">
 </section>
 
 <!-- PAGE 3 -->
-<section class="page">
-  <h2>Different, but Fashion 🎀</h2>
-
-  <div class="grid">
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-  </div>
+<section class="page" style="background-image:url('images/picture3.png')">
 </section>
 
 <!-- PAGE 4 -->
-<section class="page" style="background:#ffb6d9;">
-  <h2>Two Worlds of Style 🌍✨</h2>
-
-  <div class="grid">
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-  </div>
+<section class="page" style="background-image:url('images/picture6.png')">
 </section>
 
-<!-- FINAL -->
-<section class="page final">
-  <h2>THE-T BLOOM 💗</h2>
+<!-- FINAL PAGE -->
+<section class="final">
 
-  <p>🌍 Fashion reflects culture</p>
+  <!-- STICKERS -->
+  <img src="images/picture7.png" class="bg-sticker bg1">
+  <img src="images/picture8.png" class="bg-sticker bg2">
+
+  <h2 style="font-family:'Great Vibes'; font-size:50px;">THE-T BLOOM 💗</h2>
+
+  <p>🌍 Fashion reflects culture and diversity</p>
   <p>✨ Creativity keeps it evolving</p>
   <p>🌸 Every style tells a story</p>
 
   <h3>Komeza ube wowe 💕</h3>
+
 </section>
 
 </body>
