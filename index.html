@@ -7,151 +7,164 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
 
 <style>
-html, body {
+body {
   margin: 0;
-  padding: 0;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
   font-family: 'Poppins', sans-serif;
+  background: #f7dbe5;
 }
 
-/* EACH PAGE */
+/* PAGE */
 .page {
   height: 100vh;
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  scroll-snap-align: start;
+  padding: 40px;
   position: relative;
 }
 
-/* COVER TEXT */
-.cover-text {
-  position: absolute;
-  top: 30%;
-  left: 8%;
-  color: #ffb6d9;
+/* COVER */
+.cover {
+  background: linear-gradient(135deg, hotpink, #ffb6d9);
+  color: white;
 }
 
-.cover-text h1 {
+/* TITLE */
+.title {
   font-family: 'Great Vibes', cursive;
   font-size: 90px;
-  margin: 0;
-}
-
-.cover-text p {
-  font-size: 20px;
 }
 
 /* BUTTON */
 .btn {
+  background: gold;
+  padding: 10px 20px;
+  border-radius: 25px;
   display: inline-block;
   margin-top: 20px;
-  background: gold;
-  padding: 12px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  color: black;
 }
 
-/* FINAL PAGE */
-.final {
-  height: 100vh;
-  background: #f7dbe5;
-  position: relative;
-  text-align: center;
-  padding-top: 100px;
-  color: #ff4fa3;
-}
-
-/* STICKER BACKGROUND */
-.bg-sticker {
+/* COLLAGE BOXES */
+.card {
+  width: 200px;
+  height: 260px;
+  background: white;
+  border-radius: 15px;
   position: absolute;
-  width: 180px;
-  opacity: 0.25;
-  animation: float 6s infinite alternate;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.bg1 { top: 20px; left: 20px; }
-.bg2 { bottom: 20px; right: 20px; }
-.bg3 { top: 50%; left: 60%; }
+/* ROTATIONS */
+.c1 { top: 120px; left: 40px; transform: rotate(-8deg); }
+.c2 { top: 80px; right: 60px; transform: rotate(6deg); }
+.c3 { bottom: 60px; left: 200px; transform: rotate(3deg); }
+
+/* STICKERS */
+.sticker {
+  position: absolute;
+  font-size: 30px;
+  animation: float 3s infinite alternate;
+}
+
+.s1 { top: 20px; left: 20px; }
+.s2 { bottom: 20px; right: 20px; }
 
 @keyframes float {
   from { transform: translateY(0); }
-  to { transform: translateY(20px); }
+  to { transform: translateY(10px); }
 }
 
-/* SPARKLES */
-.sparkle {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  background: radial-gradient(circle, gold 0%, hotpink 70%, transparent 100%);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: sparkleFade 0.8s linear forwards;
+/* DARK PAGE */
+.dark {
+  background: black;
+  color: white;
 }
 
-@keyframes sparkleFade {
-  from { opacity: 1; transform: scale(1); }
-  to { opacity: 0; transform: scale(0.3) translateY(-10px); }
+/* GRID */
+.grid {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.box {
+  flex: 1;
+  height: 200px;
+  background: pink;
+  border-radius: 10px;
+}
+
+/* FINAL */
+.final {
+  background: #ffe4ec;
+  text-align: center;
+}
+
+.final h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 50px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 (COVER) -->
-<section class="page" style="background-image:url('images/picture3.png')">
-  <div class="cover-text">
-    <h1>THE-T BLOOM</h1>
-    <p>Where vintage meets now 💗</p>
-    <a href="#p2" class="btn">Enter ✨</a>
-  </div>
+<!-- PAGE 1 -->
+<section class="page cover">
+  <div class="sticker s1">💗</div>
+  <div class="sticker s2">✨</div>
+
+  <h1 class="title">THE-T BLOOM</h1>
+  <p>Where vintage meets now 💕</p>
+
+  <div class="btn">Enter ✨</div>
+
+  <!-- COLLAGE -->
+  <div class="card c1"></div>
+  <div class="card c2"></div>
+  <div class="card c3"></div>
 </section>
 
 <!-- PAGE 2 -->
-<section id="p2" class="page" style="background-image:url('images/picture4.png')">
+<section class="page dark">
+  <h2>Welcome 💗</h2>
+
+  <p>
+    ✨ Y2K nostalgia meets bold modern trends<br>
+    🎀 Fashion is self-expression<br>
+    🌸 Every outfit tells your story
+  </p>
 </section>
 
 <!-- PAGE 3 -->
-<section class="page" style="background-image:url('images/picture3.png')">
+<section class="page">
+  <h2>Different, but Fashion 🎀</h2>
+
+  <div class="grid">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
 </section>
 
 <!-- PAGE 4 -->
-<section class="page" style="background-image:url('images/picture6.png')">
+<section class="page" style="background:#ffb6d9;">
+  <h2>Two Worlds of Style 🌍✨</h2>
+
+  <div class="grid">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
 </section>
 
-<!-- FINAL PAGE -->
-<section class="final">
+<!-- FINAL -->
+<section class="page final">
+  <h2>THE-T BLOOM 💗</h2>
 
-  <!-- STICKERS -->
-  <img src="images/picture7.png" class="bg-sticker bg1">
-  <img src="images/picture8.png" class="bg-sticker bg2">
-  <img src="images/picture7.png" class="bg-sticker bg3">
-
-  <h1 style="font-family:'Great Vibes'; font-size:60px;">THE-T BLOOM 💗</h1>
-
-  <p>🌍 Fashion reflects culture, diversity, and change</p>
+  <p>🌍 Fashion reflects culture</p>
   <p>✨ Creativity keeps it evolving</p>
   <p>🌸 Every style tells a story</p>
 
-  <h2>Komeza ube wowe 💕</h2>
-
+  <h3>Komeza ube wowe 💕</h3>
 </section>
-
-<!-- SPARKLE SCRIPT -->
-<script>
-document.addEventListener("mousemove", function(e) {
-  const s = document.createElement("div");
-  s.className = "sparkle";
-  s.style.left = e.clientX + "px";
-  s.style.top = e.clientY + "px";
-  document.body.appendChild(s);
-
-  setTimeout(() => s.remove(), 800);
-});
-</script>
 
 </body>
 </html>
