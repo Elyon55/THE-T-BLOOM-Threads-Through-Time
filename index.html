@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>THE-T BLOOM | Vintage Meets Now</title>
-  <!-- Google Fonts: Great Vibes for signature, Poppins for modern text -->
+  <title>THE T-BLOOM · Entrance</title>
+  <!-- Google Fonts: Great Vibes for signature, Poppins for clean modern style -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
@@ -15,531 +15,278 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: #fffaf5;
-      scroll-behavior: smooth;
+      background: linear-gradient(135deg, #fff7f0 0%, #ffeef4 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      position: relative;
       overflow-x: hidden;
     }
 
-    /* custom scroll */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #ffe2ec;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #ff99bb;
-      border-radius: 20px;
-    }
-
-    /* each "page" takes full viewport, but with smooth stacking */
-    .page {
-      min-height: 100vh;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      padding: 2rem;
-    }
-
-    /* overlay effect for better text readability on image pages */
-    .page-overlay {
-      background-color: rgba(255, 245, 240, 0.75);
-      backdrop-filter: blur(6px);
-      border-radius: 48px;
-      padding: 2rem 2.5rem;
-      max-width: 700px;
-      text-align: center;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-      border: 1px solid rgba(255, 200, 210, 0.6);
-    }
-
-    .page-overlay:hover {
-      transform: translateY(-5px);
-      background-color: rgba(255, 248, 245, 0.85);
-    }
-
-    /* cover section - no header bar, just a beautiful intro */
-    .cover-section {
-      min-height: 100vh;
-      width: 100%;
-      background: linear-gradient(135deg, #fff0f7 0%, #ffe4f0 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      text-align: center;
-      padding: 3rem 1.5rem;
-      overflow: hidden;
-    }
-
-    /* decorative floating elements for cover */
-    .cover-section::before {
-      content: "🌸💗🎀";
-      font-size: 220px;
+    /* floating dreamy background effects (gentle, non-intrusive) */
+    body::before {
+      content: "🌸💗🎀✨";
+      font-size: 280px;
       position: absolute;
-      bottom: -50px;
-      left: -60px;
-      opacity: 0.08;
+      bottom: -60px;
+      left: -70px;
+      opacity: 0.06;
       pointer-events: none;
       white-space: nowrap;
-    }
-    .cover-section::after {
-      content: "✨🌟✨";
-      font-size: 180px;
-      position: absolute;
-      top: -30px;
-      right: -40px;
-      opacity: 0.07;
-      pointer-events: none;
+      transform: rotate(-6deg);
     }
 
-    /* title block: title + corner image */
-    .title-block {
+    body::after {
+      content: "🌟💕🌸🎀";
+      font-size: 260px;
+      position: absolute;
+      top: -50px;
+      right: -60px;
+      opacity: 0.05;
+      pointer-events: none;
+      transform: rotate(5deg);
+    }
+
+    /* main minimal cover card — ONLY title + picture3.png */
+    .cover-card {
+      max-width: 850px;
+      width: 100%;
+      background: rgba(255, 251, 248, 0.92);
+      backdrop-filter: blur(12px);
+      border-radius: 88px;
+      padding: 3rem 2rem 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 40px 60px -20px rgba(255, 80, 120, 0.3);
+      border: 1px solid rgba(255, 210, 220, 0.7);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 10;
+      animation: gentleGlow 0.9s ease-out;
+    }
+
+    .cover-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 48px 70px -22px rgba(255, 100, 130, 0.35);
+    }
+
+    @keyframes gentleGlow {
+      0% {
+        opacity: 0;
+        transform: scale(0.97);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* title wrapper - contains only title and picture3.png in corner */
+    .title-wrapper {
       position: relative;
       display: inline-block;
-      margin-bottom: 1.8rem;
-      z-index: 2;
+      margin-bottom: 0.5rem;
     }
 
+    /* main title: THE T-BLOOM (with space after T) */
     .main-title {
       font-family: 'Great Vibes', cursive;
-      font-size: 5.8rem;
+      font-size: 5.6rem;
       font-weight: 600;
-      color: #ff4fa3;
-      text-shadow: 4px 4px 15px rgba(255, 105, 180, 0.25);
+      background: linear-gradient(125deg, #ff4fa3, #ff8eb5, #ffb3cc);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: 3px;
       margin: 0;
-      letter-spacing: 2px;
-      animation: softGlow 2.5s infinite alternate;
+      animation: softPulse 2.5s infinite alternate;
     }
 
-    /* corner image (picture3.png from images folder) positioned near the title */
+    @keyframes softPulse {
+      0% { text-shadow: 0 0 0px rgba(255, 79, 163, 0.2); }
+      100% { text-shadow: 0 0 12px rgba(255, 79, 163, 0.3); }
+    }
+
+    /* ONLY picture3.png in the corner of the title — as requested */
     .corner-img {
       position: absolute;
-      top: -35px;
-      right: -75px;
+      top: -45px;
+      right: -85px;
       width: 105px;
       height: auto;
-      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.12));
       transition: transform 0.3s ease, filter 0.2s;
-      border-radius: 20px;
+      border-radius: 32px;
+      cursor: pointer;
     }
 
     .corner-img:hover {
       transform: scale(1.08) rotate(3deg);
-      filter: drop-shadow(0 12px 20px rgba(255, 80, 140, 0.3));
+      filter: drop-shadow(0 14px 22px rgba(255, 80, 140, 0.3));
     }
 
-    @media (max-width: 700px) {
+    /* responsive adjustments for smaller screens */
+    @media (max-width: 680px) {
       .main-title { font-size: 3.8rem; }
       .corner-img {
         width: 75px;
-        top: -22px;
-        right: -50px;
+        top: -28px;
+        right: -55px;
       }
-      .page-overlay { padding: 1.5rem; margin: 0 1rem; }
+      .cover-card { padding: 2rem 1.2rem; }
     }
 
-    @media (max-width: 500px) {
-      .main-title { font-size: 2.8rem; }
+    @media (max-width: 480px) {
+      .main-title { font-size: 2.7rem; }
       .corner-img {
         width: 60px;
-        top: -15px;
-        right: -35px;
+        top: -20px;
+        right: -40px;
       }
     }
 
-    .cover-sub {
-      margin-top: 1rem;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(8px);
-      padding: 1.3rem 2.2rem;
-      border-radius: 60px;
-      display: inline-block;
-      box-shadow: 0 12px 25px rgba(255, 105, 180, 0.2);
-      z-index: 2;
-    }
-
-    .cover-sub p {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #c35a7a;
-      margin-bottom: 1rem;
+    /* minimal entrance hint + button to explore other pages */
+    .enter-hint {
+      margin-top: 3rem;
+      font-size: 0.95rem;
+      color: #bc7a94;
+      font-weight: 500;
+      letter-spacing: 1px;
     }
 
     .btn-enter {
       display: inline-block;
-      background: linear-gradient(95deg, #ff9f4a, #ffbc6e);
-      padding: 12px 34px;
+      background: linear-gradient(95deg, #ff9f4a, #ffb86b);
+      padding: 12px 38px;
       border-radius: 60px;
       text-decoration: none;
-      color: #4a2a2a;
+      color: #3e2a2a;
       font-weight: 700;
-      font-size: 1.05rem;
-      box-shadow: 0 10px 18px rgba(255, 140, 70, 0.3);
+      font-size: 1rem;
+      margin-top: 1.2rem;
+      box-shadow: 0 8px 18px rgba(255, 140, 70, 0.3);
       transition: all 0.25s ease;
-      cursor: pointer;
       border: none;
-      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
     }
 
     .btn-enter:hover {
-      transform: translateY(-5px);
-      background: linear-gradient(95deg, #ffaa55, #ffca85);
-      box-shadow: 0 20px 28px -8px rgba(255, 120, 60, 0.5);
+      transform: translateY(-4px);
+      background: linear-gradient(95deg, #ffad5e, #ffc87a);
+      box-shadow: 0 15px 25px -5px rgba(255, 120, 60, 0.5);
     }
 
-    /* fashion message cards on image backgrounds */
-    .fashion-message {
-      background: rgba(255, 250, 245, 0.88);
-      backdrop-filter: blur(8px);
-      border-radius: 48px;
-      padding: 1.8rem 2rem;
-      max-width: 580px;
-      text-align: center;
-      font-weight: 500;
-      color: #4a2c38;
-      border: 1px solid #ffcfdf;
+    /* subtle footnote with editor name (minimal) */
+    .credit-note {
+      margin-top: 2.2rem;
+      font-size: 0.7rem;
+      opacity: 0.55;
+      color: #b47b92;
     }
 
-    .fashion-message h3 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.3rem;
-      color: #ff4fa3;
-      margin-bottom: 0.8rem;
+    /* floating sparkle effect for click interaction */
+    .sparkle-pop {
+      position: fixed;
+      pointer-events: none;
+      font-size: 1.3rem;
+      animation: floatUpFade 0.7s forwards;
+      z-index: 9999;
     }
 
-    .quote-mini {
-      font-style: italic;
-      font-weight: 400;
-      border-left: 4px solid #ff99bb;
-      padding-left: 1rem;
-      margin: 1rem 0;
-      font-size: 0.95rem;
-    }
-
-    /* final section with stickers and diversity message */
-    .final-section {
-      min-height: 100vh;
-      background: #f7dbe5;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 3rem 1.5rem;
-      overflow: hidden;
-    }
-
-    .bg-sticker {
-      position: absolute;
-      width: 160px;
-      opacity: 0.4;
-      transition: transform 0.4s, opacity 0.3s;
-      pointer-events: auto;
-      cursor: pointer;
-      border-radius: 28px;
-    }
-
-    .bg-sticker:hover {
-      transform: scale(1.07) rotate(3deg);
-      opacity: 0.7;
-    }
-
-    .bg1 {
-      top: 5%;
-      left: 3%;
-      transform: rotate(-6deg);
-    }
-
-    .bg2 {
-      bottom: 5%;
-      right: 3%;
-      transform: rotate(5deg);
-    }
-
-    @media (max-width: 760px) {
-      .bg-sticker { width: 110px; }
-    }
-
-    .final-content {
-      background: rgba(255, 250, 245, 0.92);
-      backdrop-filter: blur(12px);
-      padding: 2.2rem 2rem;
-      border-radius: 64px;
-      max-width: 800px;
-      z-index: 10;
-      box-shadow: 0 25px 40px -12px rgba(0,0,0,0.15);
-      transition: transform 0.2s;
-    }
-
-    .final-content:hover {
-      transform: scale(1.01);
-    }
-
-    .final-content h2 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3.8rem;
-      font-weight: 500;
-      color: #ff4fa3;
-      margin-bottom: 1rem;
-    }
-
-    .final-content p {
-      font-size: 1.1rem;
-      margin: 0.7rem 0;
-      color: #4e313f;
-      font-weight: 500;
-    }
-
-    .final-content h3 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2rem;
-      margin-top: 1rem;
-      color: #e56a8c;
-    }
-
-    .tiny-bloom {
-      font-size: 0.9rem;
-      margin-top: 1.2rem;
-      color: #b95878;
-      font-weight: 500;
-    }
-
-    @keyframes softGlow {
-      0% { text-shadow: 0 0 0px #ffb7c5; }
-      100% { text-shadow: 0 0 12px #ffb7c5; }
-    }
-
-    /* sparkle animation for small details */
-    .sparkle-hover {
-      transition: all 0.2s;
+    @keyframes floatUpFade {
+      0% {
+        opacity: 1;
+        transform: scale(0.5) translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.1) translateY(-35px);
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- COVER SECTION: THE-T BLOOM title with picture3.png in the corner (images/picture3.png) -->
-  <section class="cover-section" id="cover">
-    <div class="title-block">
-      <h1 class="main-title">THE-T BLOOM</h1>
-      <!-- picture3.png from images folder in the corner as requested -->
-      <img src="images/picture3.png" class="corner-img" alt="bloom corner style" onerror="this.onerror=null; this.src='https://placehold.co/100x100/ffe0eb/ff77aa?text=🌸';">
-    </div>
-    <div class="cover-sub">
-      <p>🌸 where vintage meets now 💗🎀<br>Y2K nostalgia · bold modern trends</p>
-      <a href="#page2" class="btn-enter">Enter the Bloom ✨</a>
-    </div>
-    <div style="position: absolute; bottom: 25px; font-size: 0.8rem; opacity: 0.7; color:#be6d8a; z-index:2;">★ Every outfit tells your story ★</div>
-  </section>
+<div class="cover-card">
+  <!-- TITLE SECTION: ONLY THE T-BLOOM title + picture3.png in the corner -->
+  <div class="title-wrapper">
+    <h1 class="main-title">THE T-BLOOM</h1>
+    <!-- picture3.png from images folder placed ONLY in the corner of the title (exactly as requested) -->
+    <img src="images/picture3.png" class="corner-img" alt="bloom accent" onerror="this.src='https://placehold.co/100x100/ffe0eb/ff77aa?text=🌸'; this.onerror=null;">
+  </div>
 
-  <!-- PAGE 2: background = images/picture4.png (Two Worlds of Style) -->
-  <section id="page2" class="page" style="background-image: url('images/picture4.png'); background-size: cover; background-position: center;">
-    <div class="page-overlay fashion-message">
-      <h3>🌸 Two Worlds of Style 🥰</h3>
-      <p>“We all dress differently, but we all express something true about ourselves.” — Unknown</p>
-      <div class="quote-mini">✧ Every outfit tells your story · confidence meets nostalgia ✧</div>
-      <p style="margin-top: 12px; font-weight: 500;">Y2K edge + vintage soul — express your authentic self.</p>
-    </div>
-  </section>
+  <!-- minimal hint and button to navigate to the other pages (different-fashion, two-worlds, closing) -->
+  <div class="enter-hint">
+    ✧ a bloom of style awaits ✧
+  </div>
+  <a href="different-fashion.html" class="btn-enter">
+    enter the collection →
+  </a>
 
-  <!-- PAGE 3: background = images/picture3.png (Different, but Fashion) -->
-  <section class="page" style="background-image: url('images/picture3.png'); background-size: cover; background-position: center;">
-    <div class="page-overlay fashion-message">
-      <h3>🎀 Different, but Fashion ✨</h3>
-      <p>Fashion evolves over time 🧡, shaped by different voices, cultures, and identities. This collection celebrates diverse styles and the ever-changing world of fashion 🏠</p>
-      <div class="quote-mini">★ A mix of timeless pieces + fresh aesthetics · stay bold ★</div>
-    </div>
-  </section>
+  <div class="credit-note">
+    — Editor-in-Chief, Tianah Gaila
+  </div>
+</div>
 
-  <!-- PAGE 4: background = images/picture6.png (Culture & Diversity) -->
-  <section class="page" style="background-image: url('images/picture6.png'); background-size: cover; background-position: center;">
-    <div class="page-overlay fashion-message">
-      <h3>💗 Fashion reflects culture, diversity & change</h3>
-      <p>It continues to evolve through creativity and expression. Every style carries its own story and meaning.</p>
-      <p><strong>THE-T BLOOM</strong> — where every style speaks, every look blooms, and fashion never stops evolving 🥰</p>
-      <div class="quote-mini">✨ Creativity keeps the world stylish ✨</div>
-    </div>
-  </section>
-
-  <!-- FINAL PAGE: includes stickers picture7.png and picture8.png from images folder -->
-  <section class="final-section">
-    <!-- picture7.png as top-left sticker and picture8.png as bottom-right sticker -->
-    <img src="images/picture7.png" class="bg-sticker bg1" alt="bloom sticker" onerror="this.onerror=null; this.src='https://placehold.co/150x150/ffd9e6/ff4fa3?text=🌸';">
-    <img src="images/picture8.png" class="bg-sticker bg2" alt="bloom sticker" onerror="this.onerror=null; this.src='https://placehold.co/150x150/ffd9e6/ff4fa3?text=🎀';">
-
-    <div class="final-content">
-      <h2>THE-T BLOOM 💗</h2>
-      <p>🌍 Fashion reflects culture and diversity</p>
-      <p>✨ Creativity keeps it evolving</p>
-      <p>🌸 Every style tells a story</p>
-      <h3>Komeza ube wowe 💕</h3>
-      <div class="tiny-bloom">— Editor-in-Chief, Tianah Gaila 🎀</div>
-      <div style="margin-top: 16px; font-size: 0.9rem; font-weight: 500;">Stay bold. Stay bright. Keep blooming 🌸</div>
-    </div>
-  </section>
-
-  <!-- JavaScript for smooth interactions, fallback handling and extra sparkling effects -->
-  <script>
-    (function() {
-      // handle any missing images by providing gentle fallback (but keep original paths)
-      const allImages = document.querySelectorAll('img');
-      allImages.forEach(img => {
-        img.addEventListener('error', function(e) {
-          if (!this.src.includes('placehold') && !this.hasAttribute('data-fallback')) {
-            this.setAttribute('data-fallback', 'true');
-            if (this.classList.contains('corner-img')) {
-              this.src = 'https://placehold.co/110x110/ffe0eb/ff77aa?text=🌸';
-            } else if (this.classList.contains('bg-sticker')) {
-              this.src = 'https://placehold.co/150x150/ffe0eb/ff77aa?text=✨';
-            } else {
-              this.src = 'https://placehold.co/600x800/ffe0eb/ff77aa?text=Bloom';
-            }
-          }
-        });
-      });
-
-      // smooth scroll for enter button
-      const enterBtn = document.querySelector('.btn-enter');
-      if (enterBtn) {
-        enterBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          const targetPage = document.querySelector('#page2');
-          if (targetPage) {
-            targetPage.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-      }
-
-      // Additional effect: floating hearts on click? subtle sparkle on each fashion card
-      const overlays = document.querySelectorAll('.page-overlay');
-      overlays.forEach(overlay => {
-        overlay.addEventListener('click', (e) => {
-          // just a playful sparkle message effect (no intrusive alert)
-          const tempMsg = document.createElement('div');
-          tempMsg.innerText = '💖 bloom with confidence 💖';
-          tempMsg.style.position = 'fixed';
-          tempMsg.style.bottom = '30px';
-          tempMsg.style.left = '50%';
-          tempMsg.style.transform = 'translateX(-50%)';
-          tempMsg.style.backgroundColor = '#ffecf0';
-          tempMsg.style.color = '#c94f70';
-          tempMsg.style.padding = '6px 20px';
-          tempMsg.style.borderRadius = '40px';
-          tempMsg.style.fontWeight = 'bold';
-          tempMsg.style.fontSize = '0.85rem';
-          tempMsg.style.zIndex = '999';
-          tempMsg.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
-          tempMsg.style.backdropFilter = 'blur(4px)';
-          tempMsg.style.pointerEvents = 'none';
-          document.body.appendChild(tempMsg);
-          setTimeout(() => {
-            tempMsg.style.opacity = '0';
-            tempMsg.style.transition = 'opacity 0.4s';
-            setTimeout(() => tempMsg.remove(), 500);
-          }, 1000);
-        });
-      });
-
-      // interactive corner image effect + tooltip feel
-      const cornerPic = document.querySelector('.corner-img');
-      if (cornerPic) {
-        cornerPic.style.cursor = 'pointer';
-        cornerPic.addEventListener('click', () => {
-          // tiny animation & feedback
-          const bloomNote = document.createElement('div');
-          bloomNote.innerText = '🌸 THE-T BLOOM spirit 🌸';
-          bloomNote.style.position = 'fixed';
-          bloomNote.style.top = '20%';
-          bloomNote.style.left = '50%';
-          bloomNote.style.transform = 'translate(-50%, -20px)';
-          bloomNote.style.backgroundColor = '#fff0f5';
-          bloomNote.style.padding = '10px 24px';
-          bloomNote.style.borderRadius = '50px';
-          bloomNote.style.fontWeight = '600';
-          bloomNote.style.color = '#df6f92';
-          bloomNote.style.boxShadow = '0 8px 18px rgba(0,0,0,0.1)';
-          bloomNote.style.zIndex = '1000';
-          bloomNote.style.fontSize = '0.9rem';
-          bloomNote.style.backdropFilter = 'blur(12px)';
-          bloomNote.style.border = '1px solid #ffbfd0';
-          document.body.appendChild(bloomNote);
-          setTimeout(() => {
-            bloomNote.style.opacity = '0';
-            bloomNote.style.transition = 'opacity 0.3s';
-            setTimeout(() => bloomNote.remove(), 400);
-          }, 1300);
-        });
-      }
-
-      // add tiny floating sparkles (special effect) every 12 seconds
-      function createSparkle() {
-        const spark = document.createElement('div');
-        const icons = ['🌸', '💗', '🎀', '✨', '⭐', '🌸'];
-        spark.innerHTML = icons[Math.floor(Math.random() * icons.length)];
-        spark.style.position = 'fixed';
-        spark.style.fontSize = (Math.random() * 24 + 16) + 'px';
-        spark.style.left = Math.random() * window.innerWidth + 'px';
-        spark.style.bottom = '-30px';
-        spark.style.opacity = '0.6';
-        spark.style.pointerEvents = 'none';
-        spark.style.zIndex = '9999';
-        spark.style.filter = 'drop-shadow(0 2px 5px rgba(0,0,0,0.1))';
-        spark.style.transition = 'transform 4s linear, opacity 3s ease-out';
-        document.body.appendChild(spark);
-        const driftX = (Math.random() - 0.5) * 80;
-        requestAnimationFrame(() => {
-          spark.style.transform = `translateY(-${window.innerHeight + 60}px) translateX(${driftX}px) rotate(12deg)`;
-          spark.style.opacity = '0';
-        });
-        setTimeout(() => spark.remove(), 4200);
-      }
-      let sparkInterval = setInterval(() => {
-        if (document.visibilityState === 'visible') {
-          createSparkle();
-        }
-      }, 10000);
-      
-      // Prevent interval accumulation on page unload (clean)
-      window.addEventListener('beforeunload', () => {
-        if (sparkInterval) clearInterval(sparkInterval);
-      });
-
-      // also a gentle on-scroll effect: titles get a little glow when in view
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, { threshold: 0.3 });
-      document.querySelectorAll('.fashion-message, .final-content, .cover-sub').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(18px)';
-        el.style.transition = 'opacity 0.7s ease, transform 0.5s ease';
-        observer.observe(el);
-      });
-      // Force immediate check after load
-      window.addEventListener('load', () => {
+<script>
+  (function() {
+    // interactive sparkle effect when clicking on the cover card (playful but elegant)
+    const card = document.querySelector('.cover-card');
+    if (card) {
+      card.addEventListener('click', function(e) {
+        // avoid double effect if clicking on button or anchor
+        if (e.target.closest('.btn-enter')) return;
+        
+        const sparkle = document.createElement('div');
+        const icons = ['🌸', '💗', '🎀', '✨', '⭐', '💕'];
+        const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+        sparkle.innerHTML = randomIcon;
+        sparkle.classList.add('sparkle-pop');
+        const x = e.clientX;
+        const y = e.clientY;
+        sparkle.style.left = (x - 12) + 'px';
+        sparkle.style.top = (y - 12) + 'px';
+        document.body.appendChild(sparkle);
         setTimeout(() => {
-          document.querySelectorAll('.fashion-message, .final-content, .cover-sub').forEach(el => {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-          });
-        }, 200);
+          sparkle.remove();
+        }, 700);
       });
+    }
 
-      // provide small console log that images folder is used
-      console.log('✨ THE-T BLOOM: all images are loaded from /images folder (picture3.png, picture4.png, picture6.png, picture7.png, picture8.png)');
-    })();
-  </script>
+    // corner image interaction: mini message when clicked (just for charm)
+    const cornerPic = document.querySelector('.corner-img');
+    if (cornerPic) {
+      cornerPic.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const msg = document.createElement('div');
+        msg.innerText = '🌸 THE T-BLOOM · let fashion bloom 🌸';
+        msg.style.position = 'fixed';
+        msg.style.bottom = '25px';
+        msg.style.left = '50%';
+        msg.style.transform = 'translateX(-50%)';
+        msg.style.backgroundColor = '#fff0f5';
+        msg.style.color = '#cc6f8c';
+        msg.style.padding = '8px 24px';
+        msg.style.borderRadius = '50px';
+        msg.style.fontWeight = '600';
+        msg.style.fontSize = '0.8rem';
+        msg.style.zIndex = '1000';
+        msg.style.boxShadow = '0 6px 16px rgba(0,0,0,0.1)';
+        msg.style.backdropFilter = 'blur(8px)';
+        msg.style.border = '1px solid #ffc0d0';
+        msg.style.fontFamily = 'Poppins, sans-serif';
+        document.body.appendChild(msg);
+        setTimeout(() => {
+          msg.style.opacity = '0';
+          msg.style.transition = 'opacity 0.3s';
+          setTimeout(() => msg.remove(), 400);
+        }, 1400);
+      });
+    }
+
+    // no other images or text content — pure minimal page as requested.
+    // all other content (description, y2k nostalgia, quotes, culture, etc.) will be on separate pages.
+  })();
+</script>
 </body>
 </html>
