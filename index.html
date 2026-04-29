@@ -16,7 +16,8 @@
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #fff7f0 0%, #ffeef4 100%);
-      min-height: 100vh;
+      min-height: 100vw;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -53,7 +54,7 @@
     .cover-card {
       max-width: 850px;
       width: 100%;
-      background: rgba(255, 251, 248, 0.92);
+      background: rgba(255, 251, 248, 0.94);
       backdrop-filter: blur(12px);
       border-radius: 88px;
       padding: 3rem 2rem 3rem 2rem;
@@ -107,7 +108,7 @@
       100% { text-shadow: 0 0 12px rgba(255, 79, 163, 0.3); }
     }
 
-    /* ONLY picture3.png in the corner of the title — as requested */
+    /* ONLY picture3.png from images folder in the corner of the title */
     .corner-img {
       position: absolute;
       top: -45px;
@@ -125,7 +126,7 @@
       filter: drop-shadow(0 14px 22px rgba(255, 80, 140, 0.3));
     }
 
-    /* responsive adjustments for smaller screens */
+    /* responsive adjustments */
     @media (max-width: 680px) {
       .main-title { font-size: 3.8rem; }
       .corner-img {
@@ -145,7 +146,6 @@
       }
     }
 
-    /* minimal entrance hint + button to explore other pages */
     .enter-hint {
       margin-top: 3rem;
       font-size: 0.95rem;
@@ -176,7 +176,6 @@
       box-shadow: 0 15px 25px -5px rgba(255, 120, 60, 0.5);
     }
 
-    /* subtle footnote with editor name (minimal) */
     .credit-note {
       margin-top: 2.2rem;
       font-size: 0.7rem;
@@ -184,7 +183,6 @@
       color: #b47b92;
     }
 
-    /* floating sparkle effect for click interaction */
     .sparkle-pop {
       position: fixed;
       pointer-events: none;
@@ -208,18 +206,16 @@
 <body>
 
 <div class="cover-card">
-  <!-- TITLE SECTION: ONLY THE T-BLOOM title + picture3.png in the corner -->
   <div class="title-wrapper">
     <h1 class="main-title">THE T-BLOOM</h1>
-    <!-- picture3.png from images folder placed ONLY in the corner of the title (exactly as requested) -->
+    <!-- picture3.png from images folder -->
     <img src="images/picture3.png" class="corner-img" alt="bloom accent" onerror="this.src='https://placehold.co/100x100/ffe0eb/ff77aa?text=🌸'; this.onerror=null;">
   </div>
 
-  <!-- minimal hint and button to navigate to the other pages (different-fashion, two-worlds, closing) -->
   <div class="enter-hint">
     ✧ a bloom of style awaits ✧
   </div>
-  <a href="different-fashion.html" class="btn-enter">
+  <a href="welcome-bloom.html" class="btn-enter">
     enter the collection →
   </a>
 
@@ -230,13 +226,10 @@
 
 <script>
   (function() {
-    // interactive sparkle effect when clicking on the cover card (playful but elegant)
     const card = document.querySelector('.cover-card');
     if (card) {
       card.addEventListener('click', function(e) {
-        // avoid double effect if clicking on button or anchor
         if (e.target.closest('.btn-enter')) return;
-        
         const sparkle = document.createElement('div');
         const icons = ['🌸', '💗', '🎀', '✨', '⭐', '💕'];
         const randomIcon = icons[Math.floor(Math.random() * icons.length)];
@@ -247,13 +240,10 @@
         sparkle.style.left = (x - 12) + 'px';
         sparkle.style.top = (y - 12) + 'px';
         document.body.appendChild(sparkle);
-        setTimeout(() => {
-          sparkle.remove();
-        }, 700);
+        setTimeout(() => sparkle.remove(), 700);
       });
     }
 
-    // corner image interaction: mini message when clicked (just for charm)
     const cornerPic = document.querySelector('.corner-img');
     if (cornerPic) {
       cornerPic.addEventListener('click', (e) => {
@@ -283,9 +273,6 @@
         }, 1400);
       });
     }
-
-    // no other images or text content — pure minimal page as requested.
-    // all other content (description, y2k nostalgia, quotes, culture, etc.) will be on separate pages.
   })();
 </script>
 </body>
