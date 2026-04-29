@@ -1,1 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>THE T-BLOOM · Welcome Bloom</title>
+  <!-- Google Fonts: Great Vibes for signature, Poppins for modern style -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(145deg, #fdf5f0 0%, #ffeaf2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* dreamy floating background accents */
+    body::before {
+      content: "🌸💗🎀✨💕";
+      font-size: 260px;
+      position: absolute;
+      bottom: -70px;
+      left: -90px;
+      opacity: 0.05;
+      pointer-events: none;
+      white-space: nowrap;
+      transform: rotate(-5deg);
+    }
+
+    body::after {
+      content: "🌟🌷💫🌸🎀";
+      font-size: 240px;
+      position: absolute;
+      top: -50px;
+      right: -80px;
+      opacity: 0.05;
+      pointer-events: none;
+      transform: rotate(6deg);
+    }
+
+    /* main card container */
+    .welcome-card {
+      max-width: 1200px;
+      width: 100%;
+      min-height: 70vh;
+      background: rgba(255, 251, 248, 0.92);
+      backdrop-filter: blur(14px);
+      border-radius: 72px;
+      box-shadow: 0 40px 65px -20px rgba(255, 80, 120, 0.35);
+      border: 1px solid rgba(255, 210, 225, 0.7);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s;
+      animation: fadeSlideUp 0.7s ease-out;
+    }
+
+    .welcome-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 48px 75px -22px rgba(255, 100, 130, 0.4);
+    }
+
+    @keyframes fadeSlideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* CORNER LAYOUT: text in bottom-left, picture4.png from images folder in top-right */
+    .text-corner {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 2.5rem;
+      max-width: 520px;
+      background: rgba(255, 245, 240, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 1.6rem 2rem;
+      border-radius: 48px;
+      border: 1px solid rgba(255, 180, 190, 0.5);
+      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s;
+      z-index: 5;
+    }
+
+    .text-corner:hover {
+      transform: scale(1.01);
+      background: rgba(255, 248, 245, 0.95);
+    }
+
+    .welcome-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.9rem;
+      color: #ff4fa3;
+      margin-bottom: 0.8rem;
+      letter-spacing: 1px;
+    }
+
+    .welcome-title span {
+      font-size: 1.6rem;
+    }
+
+    .message-list {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .message-list li {
+      margin-bottom: 0.7rem;
+      font-weight: 500;
+      color: #4a2e3c;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+    }
+
+    .message-list li i {
+      font-style: normal;
+      font-size: 1.2rem;
+    }
+
+    .editor-signature {
+      margin-top: 1.3rem;
+      padding-top: 0.8rem;
+      border-top: 2px dashed #ffbfd0;
+      font-size: 0.85rem;
+      color: #b16f8a;
+      font-style: italic;
+    }
+
+    .editor-signature strong {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1rem;
+      color: #dd7a9c;
+    }
+
+    /* picture4.png from images folder in the top-right corner */
+    .corner-image {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      width: 160px;
+      height: auto;
+      filter: drop-shadow(0 12px 20px rgba(0,0,0,0.12));
+      border-radius: 32px;
+      transition: transform 0.35s ease, filter 0.2s;
+      cursor: pointer;
+      z-index: 5;
+      object-fit: cover;
+    }
+
+    .corner-image:hover {
+      transform: scale(1.05) rotate(2deg);
+      filter: drop-shadow(0 18px 28px rgba(255, 80, 120, 0.25));
+    }
+
+    /* navigation buttons */
+    .nav-links {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      gap: 1rem;
+      z-index: 6;
+    }
+
+    .nav-btn {
+      background: rgba(255, 220, 200, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 0.6rem 1.4rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #a3516e;
+      transition: all 0.2s ease;
+      border: 1px solid #ffcddb;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .nav-btn:hover {
+      background: #ffb79a;
+      color: #3e2a2a;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+    }
+
+    /* responsive adjustments */
+    @media (max-width: 850px) {
+      .text-corner {
+        bottom: 1.5rem;
+        left: 1.5rem;
+        max-width: 420px;
+        padding: 1.2rem 1.5rem;
+      }
+      .corner-image {
+        width: 120px;
+        top: 1.2rem;
+        right: 1.2rem;
+      }
+      .message-list li {
+        font-size: 0.9rem;
+      }
+      .welcome-title {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .text-corner {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin: 2rem 1rem 1.5rem 1rem;
+        max-width: none;
+        width: auto;
+      }
+      .corner-image {
+        position: relative;
+        top: auto;
+        right: auto;
+        display: block;
+        margin: 1.5rem 1rem 0 auto;
+        width: 110px;
+      }
+      .welcome-card {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0 1rem 0;
+      }
+      .nav-links {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        justify-content: center;
+        margin: 1.5rem 1rem 2rem;
+      }
+      .text-corner {
+        order: 2;
+      }
+      .corner-image {
+        order: 1;
+      }
+      .nav-links {
+        order: 3;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .corner-image {
+        width: 85px;
+      }
+      .message-list li {
+        font-size: 0.85rem;
+        gap: 6px;
+      }
+    }
+
+    .sparkle-effect {
+      position: fixed;
+      pointer-events: none;
+      font-size: 1.3rem;
+      animation: popSparkle 0.7s forwards;
+      z-index: 9999;
+    }
+
+    @keyframes popSparkle {
+      0% {
+        opacity: 1;
+        transform: scale(0.4) translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.2) translateY(-30px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="welcome-card">
+  <!-- picture4.png from images folder in the top-right corner -->
+  <img src="images/picture4.png" class="corner-image" alt="bloom aesthetic" onerror="this.src='https://placehold.co/160x160/f7ddd0/cf6f8c?text=🌸'; this.onerror=null;">
+
+  <!-- TEXT CONTENT IN BOTTOM-LEFT CORNER -->
+  <div class="text-corner">
+    <div class="welcome-title">
+      Welcome to <span>THE T-BLOOM</span> 💕✨
+    </div>
+    <ul class="message-list">
+      <li><i>💿</i> Y2K nostalgia meets bold modern trends</li>
+      <li><i>🎀</i> Fashion as self-expression & confidence</li>
+      <li><i>🌸</i> Every outfit tells your story</li>
+      <li><i>💗</i> A mix of timeless pieces + fresh aesthetics</li>
+    </ul>
+    <div class="editor-signature">
+      Dive in, get inspired, and stay true to you ✨<br>
+      Stay bold. Stay bright. Keep blooming 🌷💫<br>
+      — Editor-in-Chief, <strong>Tianah Gaila</strong> 💕
+    </div>
+  </div>
+
+  <div class="nav-links">
+    <a href="different-fashion.html" class="nav-btn">✨ different, but fashion</a>
+    <a href="two-worlds.html" class="nav-btn">🌸 two worlds of style</a>
+    <a href="closing-page.html" class="nav-btn">💗 final bloom</a>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const textCorner = document.querySelector('.text-corner');
+    const cornerImg = document.querySelector('.corner-image');
+    const card = document.querySelector('.welcome-card');
+
+    function createSparkleEffect(e) {
+      const sparkleDiv = document.createElement('div');
+      const icons = ['🌸', '💗', '🎀', '✨', '💫', '🌷', '💕'];
+      const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+      sparkleDiv.innerHTML = randomIcon;
+      sparkleDiv.classList.add('sparkle-effect');
+      const x = e.clientX;
+      const y = e.clientY;
+      sparkleDiv.style.left = (x - 12) + 'px';
+      sparkleDiv.style.top = (y - 12) + 'px';
+      document.body.appendChild(sparkleDiv);
+      setTimeout(() => sparkleDiv.remove(), 700);
+    }
+
+    if (textCorner) {
+      textCorner.addEventListener('click', (e) => {
+        e.stopPropagation();
+        createSparkleEffect(e);
+      });
+    }
+    if (cornerImg) {
+      cornerImg.addEventListener('click', (e) => {
+        e.stopPropagation();
+        createSparkleEffect(e);
+        const msg = document.createElement('div');
+        msg.innerText = '🌸 picture4 blooms with you 🌸';
+        msg.style.position = 'fixed';
+        msg.style.bottom = '20px';
+        msg.style.left = '50%';
+        msg.style.transform = 'translateX(-50%)';
+        msg.style.backgroundColor = '#ffebf0';
+        msg.style.color = '#cd6f8e';
+        msg.style.padding = '5px 20px';
+        msg.style.borderRadius = '40px';
+        msg.style.fontSize = '0.75rem';
+        msg.style.fontWeight = '500';
+        msg.style.zIndex = '1000';
+        msg.style.backdropFilter = 'blur(4px)';
+        msg.style.border = '1px solid #ffbfcf';
+        document.body.appendChild(msg);
+        setTimeout(() => {
+          msg.style.opacity = '0';
+          msg.style.transition = 'opacity 0.3s';
+          setTimeout(() => msg.remove(), 400);
+        }, 1200);
+      });
+    }
+
+    if (card) {
+      card.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-btn')) {
+          if (e.target !== cornerImg && !textCorner.contains(e.target)) {
+            createSparkleEffect(e);
+          }
+        }
+      });
+    }
+  })();
+</script>
+</body>
+</html>
