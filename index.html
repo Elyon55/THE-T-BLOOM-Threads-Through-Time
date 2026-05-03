@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>THE T-BLOOM · Entrance</title>
-  <!-- Google Fonts: Great Vibes for signature, Poppins for clean modern style -->
+  <title>THE T-BLOOM · Welcome</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
@@ -15,262 +14,198 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fff7f0 0%, #ffeef4 100%);
-      min-height: 100vw;
-      height: 100vh;
+      background: linear-gradient(135deg, #fffaf5 0%, #ffeef4 100%);
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem;
+      padding: 2rem;
       position: relative;
       overflow-x: hidden;
     }
 
-    /* floating dreamy background effects (gentle, non-intrusive) */
+    /* soft decorative background accents (only abstract, no images) */
     body::before {
-      content: "🌸💗🎀✨";
-      font-size: 280px;
+      content: "🌸💗🎀";
+      font-size: 320px;
       position: absolute;
-      bottom: -60px;
-      left: -70px;
-      opacity: 0.06;
+      bottom: -80px;
+      left: -80px;
+      opacity: 0.05;
       pointer-events: none;
       white-space: nowrap;
-      transform: rotate(-6deg);
+      z-index: 0;
     }
 
     body::after {
-      content: "🌟💕🌸🎀";
-      font-size: 260px;
+      content: "✨💕🌸";
+      font-size: 280px;
       position: absolute;
-      top: -50px;
-      right: -60px;
-      opacity: 0.05;
+      top: -60px;
+      right: -70px;
+      opacity: 0.04;
       pointer-events: none;
-      transform: rotate(5deg);
+      z-index: 0;
     }
 
-    /* main minimal cover card — ONLY title + picture3.png */
-    .cover-card {
-      max-width: 850px;
+    /* main card - clean, minimal, no extra content */
+    .hero-card {
+      max-width: 1400px;
       width: 100%;
       background: rgba(255, 251, 248, 0.94);
-      backdrop-filter: blur(12px);
-      border-radius: 88px;
-      padding: 3rem 2rem 3rem 2rem;
-      text-align: center;
-      box-shadow: 0 40px 60px -20px rgba(255, 80, 120, 0.3);
-      border: 1px solid rgba(255, 210, 220, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 72px;
+      padding: 3rem 3.5rem;
+      box-shadow: 0 40px 60px -24px rgba(255, 80, 120, 0.3);
+      border: 1px solid rgba(255, 210, 225, 0.7);
+      z-index: 2;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      z-index: 10;
-      animation: gentleGlow 0.9s ease-out;
+      cursor: pointer;
     }
 
-    .cover-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 48px 70px -22px rgba(255, 100, 130, 0.35);
+    .hero-card:hover {
+      transform: scale(1.01);
+      box-shadow: 0 48px 70px -24px rgba(255, 100, 130, 0.35);
     }
 
-    @keyframes gentleGlow {
-      0% {
-        opacity: 0;
-        transform: scale(0.97);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
+    /* TWO COLUMN LAYOUT: title on left, image directly opposite on right */
+    .split-layout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+      flex-wrap: wrap;
     }
 
-    /* title wrapper - contains only title and picture3.png in corner */
-    .title-wrapper {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 0.5rem;
+    /* LEFT SIDE: ONLY THE TITLE (no extra text, no buttons) */
+    .title-side {
+      flex: 1;
+      text-align: center;
+      padding: 0 1rem;
     }
 
-    /* main title: THE T-BLOOM (with space after T) */
     .main-title {
       font-family: 'Great Vibes', cursive;
-      font-size: 5.6rem;
+      font-size: 6.2rem;
       font-weight: 600;
-      background: linear-gradient(125deg, #ff4fa3, #ff8eb5, #ffb3cc);
+      background: linear-gradient(125deg, #ff4fa3, #ff8eb5, #ffb3cc, #ff8eb5);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      letter-spacing: 3px;
-      margin: 0;
-      animation: softPulse 2.5s infinite alternate;
+      letter-spacing: 4px;
+      line-height: 1.2;
+      text-shadow: none;
+      animation: softPulse 3s infinite alternate;
     }
 
     @keyframes softPulse {
-      0% { text-shadow: 0 0 0px rgba(255, 79, 163, 0.2); }
-      100% { text-shadow: 0 0 12px rgba(255, 79, 163, 0.3); }
+      0% { filter: drop-shadow(0 0 2px rgba(255, 105, 180, 0.15)); }
+      100% { filter: drop-shadow(0 0 14px rgba(255, 105, 180, 0.3)); }
     }
 
-    /* ONLY picture3.png from images folder in the corner of the title */
-    .corner-img {
-      position: absolute;
-      top: -45px;
-      right: -85px;
-      width: 105px;
+    /* RIGHT SIDE: picture3.png - LARGER, DIRECTLY OPPOSITE, NOT FLOATING */
+    .picture-side {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 550px;
       height: auto;
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.12));
-      transition: transform 0.3s ease, filter 0.2s;
-      border-radius: 32px;
-      cursor: pointer;
+      border-radius: 48px;
+      box-shadow: 0 28px 40px -16px rgba(0, 0, 0, 0.25);
+      transition: transform 0.35s ease, box-shadow 0.3s;
+      display: block;
+      object-fit: cover;
+      background: #fce4ec;
     }
 
-    .corner-img:hover {
-      transform: scale(1.08) rotate(3deg);
-      filter: drop-shadow(0 14px 22px rgba(255, 80, 140, 0.3));
+    .hero-image:hover {
+      transform: scale(1.02);
+      box-shadow: 0 35px 50px -18px rgba(255, 80, 120, 0.35);
     }
 
-    /* responsive adjustments */
-    @media (max-width: 680px) {
-      .main-title { font-size: 3.8rem; }
-      .corner-img {
-        width: 75px;
-        top: -28px;
-        right: -55px;
-      }
-      .cover-card { padding: 2rem 1.2rem; }
-    }
-
-    @media (max-width: 480px) {
-      .main-title { font-size: 2.7rem; }
-      .corner-img {
-        width: 60px;
-        top: -20px;
-        right: -40px;
-      }
-    }
-
-    .enter-hint {
-      margin-top: 3rem;
-      font-size: 0.95rem;
-      color: #bc7a94;
-      font-weight: 500;
-      letter-spacing: 1px;
-    }
-
-    .btn-enter {
-      display: inline-block;
-      background: linear-gradient(95deg, #ff9f4a, #ffb86b);
-      padding: 12px 38px;
-      border-radius: 60px;
-      text-decoration: none;
-      color: #3e2a2a;
-      font-weight: 700;
-      font-size: 1rem;
-      margin-top: 1.2rem;
-      box-shadow: 0 8px 18px rgba(255, 140, 70, 0.3);
-      transition: all 0.25s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-enter:hover {
-      transform: translateY(-4px);
-      background: linear-gradient(95deg, #ffad5e, #ffc87a);
-      box-shadow: 0 15px 25px -5px rgba(255, 120, 60, 0.5);
-    }
-
-    .credit-note {
-      margin-top: 2.2rem;
-      font-size: 0.7rem;
+    /* subtle click hint - keeps the page minimal but user knows to click */
+    .click-hint {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #c47a96;
       opacity: 0.55;
-      color: #b47b92;
+      letter-spacing: 1.5px;
+      font-weight: 400;
     }
 
-    .sparkle-pop {
-      position: fixed;
-      pointer-events: none;
-      font-size: 1.3rem;
-      animation: floatUpFade 0.7s forwards;
-      z-index: 9999;
-    }
-
-    @keyframes floatUpFade {
-      0% {
-        opacity: 1;
-        transform: scale(0.5) translateY(0);
+    /* FULL RESPONSIVE: stacks on mobile but still title top, image below */
+    @media (max-width: 950px) {
+      .split-layout {
+        flex-direction: column;
+        gap: 2rem;
       }
-      100% {
-        opacity: 0;
-        transform: scale(1.1) translateY(-35px);
+      .main-title {
+        font-size: 4.8rem;
+      }
+      .hero-image {
+        max-width: 420px;
+      }
+      .hero-card {
+        padding: 2rem 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .main-title {
+        font-size: 3.2rem;
+        letter-spacing: 2px;
+      }
+      .hero-image {
+        max-width: 320px;
+      }
+      .hero-card {
+        padding: 1.8rem;
+      }
+      .click-hint {
+        font-size: 0.7rem;
+        margin-top: 1.2rem;
       }
     }
   </style>
 </head>
 <body>
 
-<div class="cover-card">
-  <div class="title-wrapper">
-    <h1 class="main-title">THE T-BLOOM</h1>
-    <!-- picture3.png from images folder -->
-    <img src="images/picture3.png" class="corner-img" alt="bloom accent" onerror="this.src='https://placehold.co/100x100/ffe0eb/ff77aa?text=🌸'; this.onerror=null;">
+<div class="hero-card" id="mainGateway">
+  <div class="split-layout">
+    <!-- LEFT: ONLY THE TITLE (THE T-BLOOM) - no extra text whatsoever -->
+    <div class="title-side">
+      <h1 class="main-title">THE T-BLOOM</h1>
+    </div>
+    
+    <!-- RIGHT: picture3.png - LARGER and directly opposite the title, fixed position, not floating -->
+    <div class="picture-side">
+      <img src="images/picture3.png" class="hero-image" alt="bloom visual" onerror="this.src='https://placehold.co/600x600/fce4ec/ff77aa?text=🌸'; this.onerror=null;">
+    </div>
   </div>
-
-  <div class="enter-hint">
-    ✧ a bloom of style awaits ✧
-  </div>
-  <a href="welcome-bloom.html" class="btn-enter">
-    enter the collection →
-  </a>
-
-  <div class="credit-note">
-    — Editor-in-Chief, Tianah Gaila
-  </div>
+  <div class="click-hint">🌸 click anywhere to explore the collection 🌸</div>
 </div>
 
 <script>
+  // FIRST PAGE: only title + picture3.png (larger, directly opposite)
+  // All other content (Different, but Fashion, welcome-bloom, etc.) are on separate pages.
+  // Click anywhere on the card to navigate to the "Different, but Fashion.html" page.
   (function() {
-    const card = document.querySelector('.cover-card');
-    if (card) {
-      card.addEventListener('click', function(e) {
-        if (e.target.closest('.btn-enter')) return;
-        const sparkle = document.createElement('div');
-        const icons = ['🌸', '💗', '🎀', '✨', '⭐', '💕'];
-        const randomIcon = icons[Math.floor(Math.random() * icons.length)];
-        sparkle.innerHTML = randomIcon;
-        sparkle.classList.add('sparkle-pop');
-        const x = e.clientX;
-        const y = e.clientY;
-        sparkle.style.left = (x - 12) + 'px';
-        sparkle.style.top = (y - 12) + 'px';
-        document.body.appendChild(sparkle);
-        setTimeout(() => sparkle.remove(), 700);
-      });
-    }
-
-    const cornerPic = document.querySelector('.corner-img');
-    if (cornerPic) {
-      cornerPic.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const msg = document.createElement('div');
-        msg.innerText = '🌸 THE T-BLOOM · let fashion bloom 🌸';
-        msg.style.position = 'fixed';
-        msg.style.bottom = '25px';
-        msg.style.left = '50%';
-        msg.style.transform = 'translateX(-50%)';
-        msg.style.backgroundColor = '#fff0f5';
-        msg.style.color = '#cc6f8c';
-        msg.style.padding = '8px 24px';
-        msg.style.borderRadius = '50px';
-        msg.style.fontWeight = '600';
-        msg.style.fontSize = '0.8rem';
-        msg.style.zIndex = '1000';
-        msg.style.boxShadow = '0 6px 16px rgba(0,0,0,0.1)';
-        msg.style.backdropFilter = 'blur(8px)';
-        msg.style.border = '1px solid #ffc0d0';
-        msg.style.fontFamily = 'Poppins, sans-serif';
-        document.body.appendChild(msg);
+    const gateway = document.getElementById('mainGateway');
+    if (gateway) {
+      gateway.addEventListener('click', function(e) {
+        // subtle scale feedback before redirect
+        this.style.transition = 'transform 0.12s ease';
+        this.style.transform = 'scale(0.98)';
         setTimeout(() => {
-          msg.style.opacity = '0';
-          msg.style.transition = 'opacity 0.3s';
-          setTimeout(() => msg.remove(), 400);
-        }, 1400);
+          // Navigate to the Different, but Fashion page (exact filename with spaces)
+          window.location.href = 'Different, but Fashion.html';
+        }, 100);
       });
     }
   })();
