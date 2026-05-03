@@ -20,85 +20,50 @@
       align-items: center;
       justify-content: center;
       padding: 2rem;
-      position: relative;
-      overflow-x: hidden;
     }
 
-    /* soft decorative background accents */
-    body::before {
-      content: "🌸💗🎀";
-      font-size: 320px;
-      position: absolute;
-      bottom: -80px;
-      left: -80px;
-      opacity: 0.05;
-      pointer-events: none;
-      white-space: nowrap;
-      z-index: 0;
-    }
-
-    body::after {
-      content: "✨💕🌸";
-      font-size: 280px;
-      position: absolute;
-      top: -60px;
-      right: -70px;
-      opacity: 0.04;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* main card - full width split layout */
-    .hero-card {
+    /* This is the key: a two-column grid layout */
+    .split-screen {
       max-width: 1400px;
       width: 100%;
       background: rgba(255, 251, 248, 0.94);
       backdrop-filter: blur(8px);
       border-radius: 72px;
-      padding: 3rem 3.5rem;
       box-shadow: 0 40px 60px -24px rgba(255, 80, 120, 0.3);
       border: 1px solid rgba(255, 210, 225, 0.7);
-      z-index: 2;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* TWO EQUAL HALVES */
       cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .hero-card:hover {
+    .split-screen:hover {
       transform: scale(1.01);
       box-shadow: 0 48px 70px -24px rgba(255, 100, 130, 0.35);
     }
 
-    /* SPLIT LAYOUT: title on LEFT half, picture on RIGHT half - directly opposite */
-    .split-layout {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 4rem;
-      flex-wrap: wrap;
-    }
-
-    /* LEFT HALF: ONLY THE TITLE (centered vertically in its half) */
-    .title-side {
-      flex: 1;
+    /* LEFT HALF: Title only - perfectly centered */
+    .left-half {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 400px;
+      padding: 3rem;
+      min-height: 550px;
     }
 
     .main-title {
       font-family: 'Great Vibes', cursive;
-      font-size: 6.5rem;
+      font-size: 6rem;
       font-weight: 600;
-      background: linear-gradient(125deg, #ff4fa3, #ff8eb5, #ffb3cc, #ff8eb5);
+      background: linear-gradient(125deg, #ff4fa3, #ff8eb5, #ffb3cc);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
+      text-align: center;
       letter-spacing: 4px;
       line-height: 1.2;
-      text-shadow: none;
       animation: softPulse 3s infinite alternate;
-      text-align: center;
     }
 
     @keyframes softPulse {
@@ -106,25 +71,25 @@
       100% { filter: drop-shadow(0 0 14px rgba(255, 105, 180, 0.3)); }
     }
 
-    /* RIGHT HALF: picture3.png - BIGGER, directly opposite the title, NOT floating */
-    .picture-side {
-      flex: 1;
+    /* RIGHT HALF: Picture only - bigger, centered, directly opposite */
+    .right-half {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 400px;
+      padding: 3rem;
+      background: linear-gradient(145deg, #fffaf5, #fff0f7);
+      min-height: 550px;
     }
 
     .hero-image {
       width: 100%;
-      max-width: 550px;
+      max-width: 550px;  /* BIGGER */
       height: auto;
       border-radius: 48px;
       box-shadow: 0 28px 40px -16px rgba(0, 0, 0, 0.25);
       transition: transform 0.35s ease, box-shadow 0.3s;
       display: block;
       object-fit: cover;
-      background: #fce4ec;
     }
 
     .hero-image:hover {
@@ -132,88 +97,81 @@
       box-shadow: 0 35px 50px -18px rgba(255, 80, 120, 0.35);
     }
 
-    /* subtle click hint */
+    /* simple click hint at the bottom - spans both columns */
     .click-hint {
+      grid-column: span 2;
       text-align: center;
-      margin-top: 2rem;
+      padding: 1rem 0 1.5rem 0;
       font-size: 0.85rem;
       color: #c47a96;
-      opacity: 0.6;
+      opacity: 0.7;
       letter-spacing: 1.5px;
-      font-weight: 400;
+      border-top: 1px solid rgba(255, 200, 210, 0.5);
+      margin-top: 0;
     }
 
-    /* RESPONSIVE: stacks on mobile but still title top, image below */
-    @media (max-width: 950px) {
-      .split-layout {
-        flex-direction: column;
-        gap: 2rem;
-      }
-      .main-title {
-        font-size: 4.5rem;
-      }
-      .hero-image {
-        max-width: 400px;
-      }
-      .hero-card {
-        padding: 2rem 2rem;
-      }
-      .title-side, .picture-side {
-        min-height: auto;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .main-title {
-        font-size: 3rem;
-        letter-spacing: 2px;
-      }
-      .hero-image {
-        max-width: 280px;
-      }
-      .hero-card {
-        padding: 1.8rem;
+    /* Responsive: on smaller screens, it becomes a single column */
+    @media (max-width: 850px) {
+      .split-screen {
+        grid-template-columns: 1fr;
       }
       .click-hint {
-        font-size: 0.7rem;
-        margin-top: 1.2rem;
+        grid-column: span 1;
+      }
+      .left-half, .right-half {
+        min-height: 350px;
+        padding: 2rem;
+      }
+      .main-title {
+        font-size: 4rem;
+      }
+      .hero-image {
+        max-width: 350px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .main-title {
+        font-size: 2.8rem;
+      }
+      .hero-image {
+        max-width: 250px;
+      }
+      .left-half, .right-half {
+        min-height: 280px;
+        padding: 1.5rem;
+      }
+      body {
+        padding: 1rem;
       }
     }
   </style>
 </head>
 <body>
 
-<div class="hero-card" id="mainGateway">
-  <div class="split-layout">
-    <!-- LEFT HALF: ONLY THE TITLE (THE T-BLOOM) - centered in its half -->
-    <div class="title-side">
-      <h1 class="main-title">THE T-BLOOM</h1>
-    </div>
-    
-    <!-- RIGHT HALF: picture3.png - BIGGER and directly opposite the title, NOT floating, NOT in corner -->
-    <div class="picture-side">
-      <img src="images/picture3.png" class="hero-image" alt="bloom visual" onerror="this.src='https://placehold.co/600x600/fce4ec/ff77aa?text=🌸'; this.onerror=null;">
-    </div>
+<!-- TWO-COLUMN GRID: Title on the left, Picture on the right, directly opposite -->
+<div class="split-screen" id="mainGateway">
+  <!-- LEFT HALF: ONLY THE TITLE (no extra text, no floating) -->
+  <div class="left-half">
+    <h1 class="main-title">THE T-BLOOM</h1>
   </div>
-  <div class="click-hint">🌸 click anywhere to explore the collection 🌸</div>
+  
+  <!-- RIGHT HALF: ONLY THE PICTURE (bigger, centered, directly opposite) -->
+  <div class="right-half">
+    <img src="images/picture3.png" class="hero-image" alt="Bloom" onerror="this.src='https://placehold.co/550x550/fce4ec/ff77aa?text=🌸'; this.onerror=null;">
+  </div>
+  
+  <div class="click-hint">🌸 click anywhere to enter the collection 🌸</div>
 </div>
 
 <script>
-  // FIRST PAGE: title on LEFT half, picture on RIGHT half - directly opposite, larger
-  // All other content is on separate pages.
-  // Click anywhere on the card to navigate to the "Different, but Fashion.html" page.
-  (function() {
-    const gateway = document.getElementById('mainGateway');
-    if (gateway) {
-      gateway.addEventListener('click', function(e) {
-        this.style.transition = 'transform 0.12s ease';
-        this.style.transform = 'scale(0.98)';
-        setTimeout(() => {
-          window.location.href = 'Different, but Fashion.html';
-        }, 100);
-      });
-    }
-  })();
+  // Click anywhere on the split-screen to go to the next page
+  const gateway = document.getElementById('mainGateway');
+  if (gateway) {
+    gateway.addEventListener('click', () => {
+      window.location.href = 'Different, but Fashion.html';
+    });
+  }
 </script>
 </body>
 </html>
