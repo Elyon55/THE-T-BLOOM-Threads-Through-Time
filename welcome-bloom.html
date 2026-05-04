@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>THE T-BLOOM · Welcome Bloom</title>
-  <!-- Google Fonts: Great Vibes for signature, Poppins for modern style -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
@@ -15,7 +14,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(145deg, #fdf5f0 0%, #ffeaf2 100%);
+      background: linear-gradient(135deg, #fffaf5 0%, #ffeef4 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -25,367 +24,373 @@
       overflow-x: hidden;
     }
 
-    /* dreamy floating background accents */
-    body::before {
-      content: "🌸💗🎀✨💕";
-      font-size: 260px;
+    /* ========== VISIBLE DECORATIONS: floating emojis all around ========== */
+    .floating-emoji {
       position: absolute;
-      bottom: -70px;
-      left: -90px;
-      opacity: 0.05;
+      pointer-events: none;
+      z-index: 5;
+      font-size: 2rem;
+      filter: drop-shadow(0 4px 8px rgba(255, 100, 120, 0.3));
+      animation: floatEmoji 6s infinite ease-in-out;
+    }
+
+    @keyframes floatEmoji {
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+      50% { transform: translateY(-20px) rotate(8deg); opacity: 1; }
+    }
+
+    @keyframes twinkleEmoji {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+
+    @keyframes spinEmoji {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% { filter: drop-shadow(0 0 2px rgba(255, 105, 180, 0.2)); }
+      50% { filter: drop-shadow(0 0 18px rgba(255, 160, 120, 0.5)); }
+    }
+
+    .emoji-1 { top: 5%; left: 3%; animation-duration: 5s; }
+    .emoji-2 { top: 12%; right: 5%; animation-duration: 7s; animation-delay: 0.5s; }
+    .emoji-3 { bottom: 15%; left: 4%; animation-duration: 6s; animation-delay: 1s; }
+    .emoji-4 { bottom: 20%; right: 6%; animation-duration: 5.5s; animation-delay: 0.3s; }
+    .emoji-5 { top: 30%; left: 2%; animation-duration: 8s; }
+    .emoji-6 { top: 55%; right: 3%; animation-duration: 4.5s; }
+    .emoji-7 { bottom: 40%; left: 7%; animation-duration: 6.5s; }
+    .emoji-8 { top: 70%; right: 8%; animation-duration: 5.8s; }
+    .emoji-9 { top: 20%; left: 10%; animation: twinkleEmoji 3s infinite; font-size: 1.5rem; }
+    .emoji-10 { bottom: 30%; right: 10%; animation: spinEmoji 10s infinite linear; font-size: 1.6rem; }
+    .emoji-11 { top: 45%; left: 88%; animation: floatEmoji 4.5s infinite; font-size: 1.7rem; }
+    .emoji-12 { bottom: 10%; left: 15%; animation: twinkleEmoji 3.5s infinite; font-size: 1.5rem; }
+
+    /* large background decorative pattern */
+    body::before {
+      content: "🌸 💗 🎀 ✨ 💕 🌸 ✨ 🎀 💗 🌸";
+      font-size: 200px;
+      position: absolute;
+      bottom: -50px;
+      left: -80px;
+      opacity: 0.06;
       pointer-events: none;
       white-space: nowrap;
-      transform: rotate(-5deg);
+      z-index: 0;
     }
 
     body::after {
-      content: "🌟🌷💫🌸🎀";
-      font-size: 240px;
+      content: "✨ 💖 🌟 🎀 💕 ✨ 💗 🌸 ✨ 💖";
+      font-size: 190px;
       position: absolute;
-      top: -50px;
-      right: -80px;
+      top: -40px;
+      right: -70px;
       opacity: 0.05;
       pointer-events: none;
-      transform: rotate(6deg);
+      z-index: 0;
     }
 
-    /* main card container */
-    .welcome-card {
-      max-width: 1200px;
+    /* MAIN SPLIT CARD - same layout as first page */
+    .split-card {
+      max-width: 1400px;
       width: 100%;
-      min-height: 70vh;
-      background: rgba(255, 251, 248, 0.92);
-      backdrop-filter: blur(14px);
-      border-radius: 72px;
-      box-shadow: 0 40px 65px -20px rgba(255, 80, 120, 0.35);
-      border: 1px solid rgba(255, 210, 225, 0.7);
-      position: relative;
+      background: rgba(255, 251, 248, 0.95);
+      backdrop-filter: blur(12px);
+      border-radius: 80px;
+      box-shadow: 0 40px 60px -24px rgba(255, 80, 120, 0.35);
+      border: 2px solid rgba(255, 180, 150, 0.5);
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s;
-      animation: fadeSlideUp 0.7s ease-out;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      z-index: 10;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .welcome-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 48px 75px -22px rgba(255, 100, 130, 0.4);
-    }
-
-    @keyframes fadeSlideUp {
-      0% {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* CORNER LAYOUT: text in bottom-left, picture4.png from images folder in top-right */
-    .text-corner {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 2.5rem;
-      max-width: 520px;
-      background: rgba(255, 245, 240, 0.85);
-      backdrop-filter: blur(8px);
-      padding: 1.6rem 2rem;
-      border-radius: 48px;
-      border: 1px solid rgba(255, 180, 190, 0.5);
-      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
-      transition: transform 0.2s;
-      z-index: 5;
-    }
-
-    .text-corner:hover {
+    .split-card:hover {
       transform: scale(1.01);
-      background: rgba(255, 248, 245, 0.95);
+      box-shadow: 0 50px 75px -28px rgba(255, 100, 130, 0.45);
+      border-color: rgba(255, 200, 160, 0.8);
     }
+
+    /* LEFT HALF: Welcome content with pink/gold theme */
+    .left-half {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem;
+      min-height: 600px;
+      background: linear-gradient(145deg, rgba(255, 250, 245, 0.95), rgba(255, 245, 240, 0.95));
+      position: relative;
+    }
+
+    /* inner emoji decorations around content */
+    .inner-emoji {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.65;
+      filter: drop-shadow(0 2px 4px rgba(255, 100, 100, 0.3));
+    }
+    .inner-1 { top: 25px; left: 25px; animation: floatEmoji 4s infinite; }
+    .inner-2 { top: 25px; right: 25px; animation: floatEmoji 5s infinite 0.5s; }
+    .inner-3 { bottom: 25px; left: 25px; animation: floatEmoji 4.5s infinite 1s; }
+    .inner-4 { bottom: 25px; right: 25px; animation: spinEmoji 8s infinite linear; }
+    .inner-5 { top: 50%; left: 15px; animation: twinkleEmoji 2.8s infinite; font-size: 1.5rem; }
+    .inner-6 { top: 45%; right: 15px; animation: floatEmoji 3.5s infinite; font-size: 1.5rem; }
 
     .welcome-title {
       font-family: 'Great Vibes', cursive;
-      font-size: 1.9rem;
-      color: #ff4fa3;
-      margin-bottom: 0.8rem;
-      letter-spacing: 1px;
+      font-size: 4rem;
+      background: linear-gradient(125deg, #ff4fa3, #ff8eb5, #e8a87c, #ffb347);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      animation: gentlePulse 3s infinite alternate;
     }
 
-    .welcome-title span {
-      font-size: 1.6rem;
-    }
-
-    .message-list {
-      list-style: none;
-      margin-top: 0.5rem;
-    }
-
-    .message-list li {
-      margin-bottom: 0.7rem;
+    /* stylish message lines */
+    .message-line {
+      font-size: 1.1rem;
+      margin: 0.8rem 0;
+      color: #5a3a48;
       font-weight: 500;
-      color: #4a2e3c;
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 1rem;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .message-list li i {
-      font-style: normal;
-      font-size: 1.2rem;
+    .message-line .emoji-icon {
+      font-size: 1.4rem;
+      display: inline-block;
+      animation: floatEmoji 2s infinite;
     }
 
-    .editor-signature {
-      margin-top: 1.3rem;
-      padding-top: 0.8rem;
-      border-top: 2px dashed #ffbfd0;
-      font-size: 0.85rem;
-      color: #b16f8a;
+    .gold-text {
+      color: #e8a87c;
+      font-weight: 600;
+    }
+
+    .pink-text {
+      color: #ff7b9c;
+    }
+
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ffb8a0, #ff8eb5, #ffb8a0, transparent);
+      margin: 1.2rem 0;
+      width: 100%;
+    }
+
+    .divider-gold {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ffb347, #e8a87c, #ffb347, transparent);
+      margin: 1rem 0;
+    }
+
+    .editor-note {
+      margin-top: 1.8rem;
+      padding-top: 1.2rem;
+      font-size: 0.95rem;
+      color: #b86f88;
       font-style: italic;
+      border-top: 2px dashed rgba(255, 180, 120, 0.6);
     }
 
-    .editor-signature strong {
+    .editor-note .signature {
       font-family: 'Great Vibes', cursive;
-      font-size: 1rem;
-      color: #dd7a9c;
+      font-size: 1.6rem;
+      background: linear-gradient(125deg, #ff4fa3, #ffb347);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-top: 0.3rem;
     }
 
-    /* picture4.png from images folder in the top-right corner */
-    .corner-image {
-      position: absolute;
-      top: 2rem;
-      right: 2rem;
-      width: 160px;
-      height: auto;
-      filter: drop-shadow(0 12px 20px rgba(0,0,0,0.12));
-      border-radius: 32px;
-      transition: transform 0.35s ease, filter 0.2s;
-      cursor: pointer;
-      z-index: 5;
-      object-fit: cover;
-    }
-
-    .corner-image:hover {
-      transform: scale(1.05) rotate(2deg);
-      filter: drop-shadow(0 18px 28px rgba(255, 80, 120, 0.25));
-    }
-
-    /* navigation buttons */
-    .nav-links {
-      position: absolute;
-      bottom: 2rem;
-      right: 2rem;
+    /* RIGHT HALF: Picture ONLY - larger, directly opposite, NOT in corner */
+    .right-half {
       display: flex;
-      gap: 1rem;
-      z-index: 6;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+      background: linear-gradient(145deg, #fffaf5, #fff0f7);
+      min-height: 600px;
+      position: relative;
     }
 
-    .nav-btn {
-      background: rgba(255, 220, 200, 0.85);
-      backdrop-filter: blur(4px);
-      padding: 0.6rem 1.4rem;
+    /* emoji decorations around picture (not covering it, just enhancing) */
+    .pic-emoji {
+      position: absolute;
+      font-size: 2.2rem;
+      opacity: 0.75;
+      filter: drop-shadow(0 2px 8px rgba(255, 120, 100, 0.35));
+    }
+    .pic-top { top: 25px; left: 50%; transform: translateX(-50%); animation: floatEmoji 3.5s infinite; }
+    .pic-bottom { bottom: 25px; left: 50%; transform: translateX(-50%); animation: floatEmoji 4s infinite 0.8s; }
+    .pic-left { top: 50%; left: 20px; transform: translateY(-50%); animation: twinkleEmoji 2.8s infinite; }
+    .pic-right { top: 50%; right: 20px; transform: translateY(-50%); animation: twinkleEmoji 3.2s infinite 0.5s; }
+    .pic-corner-tl { top: 15px; left: 15px; animation: spinEmoji 10s infinite linear; font-size: 1.7rem; }
+    .pic-corner-br { bottom: 15px; right: 15px; animation: spinEmoji 12s infinite reverse; font-size: 1.7rem; }
+
+    .hero-image {
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      border-radius: 48px;
+      box-shadow: 0 28px 40px -16px rgba(0, 0, 0, 0.25), 0 0 0 6px rgba(255, 200, 160, 0.35);
+      transition: transform 0.35s ease, box-shadow 0.3s;
+      display: block;
+      object-fit: cover;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-image:hover {
+      transform: scale(1.02);
+      box-shadow: 0 35px 50px -18px rgba(255, 120, 80, 0.4), 0 0 0 10px rgba(255, 200, 160, 0.45);
+    }
+
+    /* bottom navigation buttons */
+    .bottom-nav {
+      grid-column: span 2;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: rgba(255, 250, 245, 0.92);
+      border-top: 2px dashed rgba(255, 180, 150, 0.6);
+    }
+
+    .btn {
+      background: linear-gradient(95deg, #ffb347, #ff8c5a);
+      padding: 12px 32px;
       border-radius: 60px;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: #a3516e;
-      transition: all 0.2s ease;
-      border: 1px solid #ffcddb;
+      color: #3e2a2a;
+      font-weight: 700;
+      transition: 0.25s;
+      box-shadow: 0 6px 14px rgba(255, 140, 70, 0.3);
       font-family: 'Poppins', sans-serif;
     }
 
-    .nav-btn:hover {
-      background: #ffb79a;
-      color: #3e2a2a;
+    .btn:hover {
+      background: linear-gradient(95deg, #ffc05c, #ffa06a);
       transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 12px 22px rgba(255, 140, 70, 0.45);
     }
 
-    /* responsive adjustments */
-    @media (max-width: 850px) {
-      .text-corner {
-        bottom: 1.5rem;
-        left: 1.5rem;
-        max-width: 420px;
-        padding: 1.2rem 1.5rem;
+    /* gold accent class */
+    .gold-accent {
+      color: #e8a87c;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 950px) {
+      .split-card {
+        grid-template-columns: 1fr;
       }
-      .corner-image {
-        width: 120px;
-        top: 1.2rem;
-        right: 1.2rem;
+      .bottom-nav {
+        grid-column: span 1;
       }
-      .message-list li {
-        font-size: 0.9rem;
+      .left-half, .right-half {
+        min-height: auto;
+        padding: 2rem;
       }
       .welcome-title {
-        font-size: 1.6rem;
+        font-size: 3rem;
+      }
+      .hero-image {
+        max-width: 380px;
+      }
+      .message-line {
+        font-size: 0.95rem;
       }
     }
 
-    @media (max-width: 650px) {
-      .text-corner {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        margin: 2rem 1rem 1.5rem 1rem;
-        max-width: none;
-        width: auto;
-      }
-      .corner-image {
-        position: relative;
-        top: auto;
-        right: auto;
-        display: block;
-        margin: 1.5rem 1rem 0 auto;
-        width: 110px;
-      }
-      .welcome-card {
-        display: flex;
-        flex-direction: column;
-        padding: 1rem 0 1rem 0;
-      }
-      .nav-links {
-        position: relative;
-        bottom: auto;
-        right: auto;
-        justify-content: center;
-        margin: 1.5rem 1rem 2rem;
-      }
-      .text-corner {
-        order: 2;
-      }
-      .corner-image {
-        order: 1;
-      }
-      .nav-links {
-        order: 3;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .corner-image {
-        width: 85px;
-      }
-      .message-list li {
-        font-size: 0.85rem;
-        gap: 6px;
-      }
-    }
-
-    .sparkle-effect {
-      position: fixed;
-      pointer-events: none;
-      font-size: 1.3rem;
-      animation: popSparkle 0.7s forwards;
-      z-index: 9999;
-    }
-
-    @keyframes popSparkle {
-      0% {
-        opacity: 1;
-        transform: scale(0.4) translateY(0);
-      }
-      100% {
-        opacity: 0;
-        transform: scale(1.2) translateY(-30px);
-      }
+    @media (max-width: 600px) {
+      body { padding: 1rem; }
+      .welcome-title { font-size: 2.2rem; }
+      .message-line { font-size: 0.85rem; }
+      .hero-image { max-width: 280px; }
+      .left-half, .right-half { padding: 1.5rem; }
+      .btn { padding: 8px 20px; font-size: 0.8rem; }
+      .inner-emoji, .pic-emoji { font-size: 1.2rem; }
+      .floating-emoji { font-size: 1.3rem; }
     }
   </style>
 </head>
 <body>
 
-<div class="welcome-card">
-  <!-- picture4.png from images folder in the top-right corner -->
-  <img src="images/picture4.png" class="corner-image" alt="bloom aesthetic" onerror="this.src='https://placehold.co/160x160/f7ddd0/cf6f8c?text=🌸'; this.onerror=null;">
+<!-- VISIBLE DECORATIONS: floating emojis all around the page -->
+<div class="floating-emoji emoji-1">🌸</div>
+<div class="floating-emoji emoji-2">💗</div>
+<div class="floating-emoji emoji-3">🎀</div>
+<div class="floating-emoji emoji-4">✨</div>
+<div class="floating-emoji emoji-5">💕</div>
+<div class="floating-emoji emoji-6">🌟</div>
+<div class="floating-emoji emoji-7">🌸</div>
+<div class="floating-emoji emoji-8">💖</div>
+<div class="floating-emoji emoji-9">⭐</div>
+<div class="floating-emoji emoji-10">🎀</div>
+<div class="floating-emoji emoji-11">💗</div>
+<div class="floating-emoji emoji-12">✨</div>
 
-  <!-- TEXT CONTENT IN BOTTOM-LEFT CORNER -->
-  <div class="text-corner">
-    <div class="welcome-title">
-      Welcome to <span>THE T-BLOOM</span> 💕✨
-    </div>
-    <ul class="message-list">
-      <li><i>💿</i> Y2K nostalgia meets bold modern trends</li>
-      <li><i>🎀</i> Fashion as self-expression & confidence</li>
-      <li><i>🌸</i> Every outfit tells your story</li>
-      <li><i>💗</i> A mix of timeless pieces + fresh aesthetics</li>
-    </ul>
-    <div class="editor-signature">
-      Dive in, get inspired, and stay true to you ✨<br>
-      Stay bold. Stay bright. Keep blooming 🌷💫<br>
-      — Editor-in-Chief, <strong>Tianah Gaila</strong> 💕
+<!-- MAIN SPLIT CARD: Welcome Bloom content on LEFT half, picture on RIGHT half -->
+<div class="split-card">
+  <!-- LEFT HALF: Welcome Bloom content with pink & gold theme -->
+  <div class="left-half">
+    <div class="inner-emoji inner-1">🌸</div>
+    <div class="inner-emoji inner-2">💗</div>
+    <div class="inner-emoji inner-3">🎀</div>
+    <div class="inner-emoji inner-4">✨</div>
+    <div class="inner-emoji inner-5">💕</div>
+    <div class="inner-emoji inner-6">🌟</div>
+
+    <h1 class="welcome-title">Welcome to <span class="gold-accent">THE T-BLOOM</span> 💕✨</h1>
+    
+    <p class="message-line"><span class="emoji-icon">🌸</span> where <span class="gold-text">vintage meets now</span> 🌸</p>
+    
+    <div class="divider-gold"></div>
+    
+    <p class="message-line"><span class="emoji-icon">💿</span> Y2K nostalgia meets <span class="gold-text">bold modern trends</span></p>
+    <p class="message-line"><span class="emoji-icon">🎀</span> Fashion as <span class="pink-text">self-expression & confidence</span></p>
+    
+    <div class="divider"></div>
+    
+    <p class="message-line"><span class="emoji-icon">🌸</span> <span class="gold-text">Every outfit</span> tells your story</p>
+    <p class="message-line"><span class="emoji-icon">💗</span> A mix of <span class="gold-text">timeless pieces</span> + fresh aesthetics</p>
+    
+    <div class="divider-gold"></div>
+    
+    <p class="message-line"><span class="emoji-icon">✨</span> Dive in, get inspired, and <span class="gold-text">stay true to you</span> ✨</p>
+    <p class="message-line"><span class="emoji-icon">🌷</span> <span class="gold-text">Stay bold. Stay bright.</span> Keep blooming 🌷💫</p>
+    
+    <div class="editor-note">
+      — Editor-in-Chief, <span class="gold-accent">Tianah Gaila</span> 💕
+      <div class="signature">✨🌸💗🎀💕✨</div>
     </div>
   </div>
 
-  <div class="nav-links">
-    <a href="different-fashion.html" class="nav-btn">✨ different, but fashion</a>
-    <a href="two-worlds.html" class="nav-btn">🌸 two worlds of style</a>
-    <a href="closing-page.html" class="nav-btn">💗 final bloom</a>
+  <!-- RIGHT HALF: picture4.png - LARGER, directly opposite title, NOT in corner -->
+  <div class="right-half">
+    <div class="pic-emoji pic-top">🌸</div>
+    <div class="pic-emoji pic-bottom">💗</div>
+    <div class="pic-emoji pic-left">🎀</div>
+    <div class="pic-emoji pic-right">✨</div>
+    <div class="pic-emoji pic-corner-tl">💕</div>
+    <div class="pic-emoji pic-corner-br">🌟</div>
+    <img src="images/picture4.png" class="hero-image" alt="Fashion Bloom" onerror="this.src='https://placehold.co/550x550/fce4ec/ff77aa?text=🌸💗✨'; this.onerror=null;">
+  </div>
+
+  <!-- bottom navigation buttons -->
+  <div class="bottom-nav">
+    <a href="index.html" class="btn">◀ Back to Home</a>
+    <a href="Different, but Fashion.html" class="btn">Fashion Gallery →</a>
   </div>
 </div>
 
-<script>
-  (function() {
-    const textCorner = document.querySelector('.text-corner');
-    const cornerImg = document.querySelector('.corner-image');
-    const card = document.querySelector('.welcome-card');
-
-    function createSparkleEffect(e) {
-      const sparkleDiv = document.createElement('div');
-      const icons = ['🌸', '💗', '🎀', '✨', '💫', '🌷', '💕'];
-      const randomIcon = icons[Math.floor(Math.random() * icons.length)];
-      sparkleDiv.innerHTML = randomIcon;
-      sparkleDiv.classList.add('sparkle-effect');
-      const x = e.clientX;
-      const y = e.clientY;
-      sparkleDiv.style.left = (x - 12) + 'px';
-      sparkleDiv.style.top = (y - 12) + 'px';
-      document.body.appendChild(sparkleDiv);
-      setTimeout(() => sparkleDiv.remove(), 700);
-    }
-
-    if (textCorner) {
-      textCorner.addEventListener('click', (e) => {
-        e.stopPropagation();
-        createSparkleEffect(e);
-      });
-    }
-    if (cornerImg) {
-      cornerImg.addEventListener('click', (e) => {
-        e.stopPropagation();
-        createSparkleEffect(e);
-        const msg = document.createElement('div');
-        msg.innerText = '🌸 picture4 blooms with you 🌸';
-        msg.style.position = 'fixed';
-        msg.style.bottom = '20px';
-        msg.style.left = '50%';
-        msg.style.transform = 'translateX(-50%)';
-        msg.style.backgroundColor = '#ffebf0';
-        msg.style.color = '#cd6f8e';
-        msg.style.padding = '5px 20px';
-        msg.style.borderRadius = '40px';
-        msg.style.fontSize = '0.75rem';
-        msg.style.fontWeight = '500';
-        msg.style.zIndex = '1000';
-        msg.style.backdropFilter = 'blur(4px)';
-        msg.style.border = '1px solid #ffbfcf';
-        document.body.appendChild(msg);
-        setTimeout(() => {
-          msg.style.opacity = '0';
-          msg.style.transition = 'opacity 0.3s';
-          setTimeout(() => msg.remove(), 400);
-        }, 1200);
-      });
-    }
-
-    if (card) {
-      card.addEventListener('click', (e) => {
-        if (!e.target.closest('.nav-btn')) {
-          if (e.target !== cornerImg && !textCorner.contains(e.target)) {
-            createSparkleEffect(e);
-          }
-        }
-      });
-    }
-  })();
-</script>
 </body>
 </html>
