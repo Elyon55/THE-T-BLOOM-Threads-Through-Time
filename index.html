@@ -279,7 +279,8 @@
 <div class="floating-emoji emoji-11">💗</div>
 <div class="floating-emoji emoji-12">✨</div>
 
-<div class="hero-card" id="mainGateway">
+<!-- ENTIRE CARD IS CLICKABLE - takes you to welcome-bloom.html -->
+<div class="hero-card" onclick="window.location.href='welcome-bloom.html';">
   <div class="left-half">
     <div class="title-emoji title-emoji-1">🌸</div>
     <div class="title-emoji title-emoji-2">💗</div>
@@ -315,18 +316,5 @@
   </div>
 </div>
 
-<script>
-  // UPDATED: Click anywhere now takes you to welcome-bloom.html
-  const gateway = document.getElementById('mainGateway');
-  if (gateway) {
-    gateway.addEventListener('click', function(e) {
-      this.style.transition = 'transform 0.1s ease';
-      this.style.transform = 'scale(0.98)';
-      setTimeout(() => {
-        window.location.href = 'welcome-bloom.html';
-      }, 100);
-    });
-  }
-</script>
 </body>
 </html>
