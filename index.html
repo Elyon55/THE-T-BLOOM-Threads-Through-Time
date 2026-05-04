@@ -24,8 +24,7 @@
       overflow-x: hidden;
     }
 
-    /* ========== VISIBLE DECORATIONS: floating emojis, sparkles, flowers ========== */
-    /* floating emojis scattered around the page - VISIBLE and animated */
+    /* ========== VISIBLE DECORATIONS: floating emojis ========== */
     .floating-emoji {
       position: absolute;
       pointer-events: none;
@@ -50,46 +49,43 @@
       100% { transform: rotate(360deg); }
     }
 
-    /* individual emoji positions */
-    .emoji-1 { top: 5%; left: 3%; animation-duration: 5s; font-size: 2.2rem; }
-    .emoji-2 { top: 12%; right: 5%; animation-duration: 7s; animation-delay: 0.5s; font-size: 2rem; }
-    .emoji-3 { bottom: 15%; left: 4%; animation-duration: 6s; animation-delay: 1s; font-size: 2.5rem; }
-    .emoji-4 { bottom: 20%; right: 6%; animation-duration: 5.5s; animation-delay: 0.3s; font-size: 2rem; }
-    .emoji-5 { top: 30%; left: 2%; animation-duration: 8s; animation-delay: 0.8s; font-size: 1.8rem; }
-    .emoji-6 { top: 60%; right: 3%; animation-duration: 4.5s; animation-delay: 1.2s; font-size: 2.2rem; }
-    .emoji-7 { bottom: 40%; left: 7%; animation-duration: 6.5s; animation-delay: 0.2s; font-size: 1.9rem; }
-    .emoji-8 { top: 75%; right: 8%; animation-duration: 5.8s; animation-delay: 0.7s; font-size: 2rem; }
-    .emoji-9 { top: 20%; left: 12%; animation: twinkleEmoji 3s infinite; font-size: 1.5rem; }
-    .emoji-10 { bottom: 30%; right: 12%; animation: spinEmoji 10s infinite linear; font-size: 1.6rem; }
-    .emoji-11 { top: 45%; left: 85%; animation: floatEmoji 4s infinite; font-size: 1.7rem; }
-    .emoji-12 { top: 85%; left: 20%; animation: twinkleEmoji 3.5s infinite; font-size: 1.5rem; }
+    .emoji-1 { top: 5%; left: 3%; animation-duration: 5s; }
+    .emoji-2 { top: 12%; right: 5%; animation-duration: 7s; animation-delay: 0.5s; }
+    .emoji-3 { bottom: 15%; left: 4%; animation-duration: 6s; animation-delay: 1s; }
+    .emoji-4 { bottom: 20%; right: 6%; animation-duration: 5.5s; animation-delay: 0.3s; }
+    .emoji-5 { top: 30%; left: 2%; animation-duration: 8s; }
+    .emoji-6 { top: 55%; right: 3%; animation-duration: 4.5s; }
+    .emoji-7 { bottom: 40%; left: 7%; animation-duration: 6.5s; }
+    .emoji-8 { top: 70%; right: 8%; animation-duration: 5.8s; }
+    .emoji-9 { top: 20%; left: 10%; animation: twinkleEmoji 3s infinite; font-size: 1.5rem; }
+    .emoji-10 { bottom: 30%; right: 10%; animation: spinEmoji 10s infinite linear; font-size: 1.6rem; }
+    .emoji-11 { top: 45%; left: 88%; animation: floatEmoji 4.5s infinite; font-size: 1.7rem; }
+    .emoji-12 { bottom: 10%; left: 15%; animation: twinkleEmoji 3.5s infinite; font-size: 1.5rem; }
 
-    /* large background decorative pattern */
     body::before {
       content: "🌸 💗 🎀 ✨ 💕 🌸 ✨ 🎀 💗 🌸";
-      font-size: 180px;
+      font-size: 200px;
       position: absolute;
-      bottom: -40px;
-      left: -60px;
-      opacity: 0.08;
+      bottom: -50px;
+      left: -80px;
+      opacity: 0.06;
       pointer-events: none;
       white-space: nowrap;
       z-index: 0;
-      font-family: monospace;
     }
 
     body::after {
-      content: "✨ 💖 🌟 🎀 💕 ✨ 💗 🌸 ✨";
-      font-size: 160px;
+      content: "✨ 💖 🌟 🎀 💕 ✨ 💗 🌸 ✨ 💖";
+      font-size: 190px;
       position: absolute;
-      top: -30px;
-      right: -50px;
-      opacity: 0.07;
+      top: -40px;
+      right: -70px;
+      opacity: 0.05;
       pointer-events: none;
       z-index: 0;
     }
 
-    /* main card */
+    /* MAIN SPLIT CARD */
     .hero-card {
       max-width: 1400px;
       width: 100%;
@@ -113,7 +109,7 @@
       border-color: rgba(255, 200, 160, 0.8);
     }
 
-    /* LEFT HALF: Title with emoji decorations inside */
+    /* LEFT HALF */
     .left-half {
       display: flex;
       flex-direction: column;
@@ -125,25 +121,24 @@
       position: relative;
     }
 
-    /* inner emoji decorations around title */
     .title-emoji {
       position: absolute;
-      font-size: 2.2rem;
-      opacity: 0.7;
+      font-size: 2rem;
+      opacity: 0.65;
       filter: drop-shadow(0 2px 4px rgba(255, 100, 100, 0.3));
     }
-    .title-emoji-1 { top: 25px; left: 30px; animation: floatEmoji 4s infinite; }
-    .title-emoji-2 { top: 20px; right: 30px; animation: floatEmoji 5s infinite 0.5s; }
-    .title-emoji-3 { bottom: 25px; left: 35px; animation: floatEmoji 4.5s infinite 1s; }
-    .title-emoji-4 { bottom: 30px; right: 30px; animation: floatEmoji 5.5s infinite 0.3s; }
-    .title-emoji-5 { top: 50%; left: 12px; animation: twinkleEmoji 2.5s infinite; font-size: 1.8rem; }
-    .title-emoji-6 { top: 45%; right: 12px; animation: spinEmoji 8s infinite linear; font-size: 1.6rem; }
+    .title-emoji-1 { top: 25px; left: 25px; animation: floatEmoji 4s infinite; }
+    .title-emoji-2 { top: 25px; right: 25px; animation: floatEmoji 5s infinite 0.5s; }
+    .title-emoji-3 { bottom: 25px; left: 25px; animation: floatEmoji 4.5s infinite 1s; }
+    .title-emoji-4 { bottom: 25px; right: 25px; animation: spinEmoji 8s infinite linear; }
+    .title-emoji-5 { top: 50%; left: 15px; animation: twinkleEmoji 2.8s infinite; font-size: 1.5rem; }
+    .title-emoji-6 { top: 45%; right: 15px; animation: floatEmoji 3.5s infinite; font-size: 1.5rem; }
 
     .main-title {
       font-family: 'Great Vibes', cursive;
       font-size: 6rem;
       font-weight: 600;
-      background: linear-gradient(125deg, #ff4fa3, #ff8eb5, #e8a87c, #ffb347, #ff8eb5);
+      background: linear-gradient(125deg, #ff4fa3, #ff8eb5, #e8a87c, #ffb347);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
@@ -155,11 +150,10 @@
     }
 
     @keyframes softPulse {
-      0% { filter: drop-shadow(0 0 2px rgba(255, 105, 180, 0.3)); }
-      100% { filter: drop-shadow(0 0 20px rgba(255, 160, 120, 0.5)); }
+      0%, 100% { filter: drop-shadow(0 0 2px rgba(255, 105, 180, 0.3)); }
+      50% { filter: drop-shadow(0 0 20px rgba(255, 160, 120, 0.5)); }
     }
 
-    /* decorative title row with emojis */
     .title-decoration {
       display: flex;
       align-items: center;
@@ -172,7 +166,6 @@
     .title-decoration span {
       animation: floatEmoji 3s infinite;
       display: inline-block;
-      filter: drop-shadow(0 2px 4px rgba(255, 100, 80, 0.3));
     }
 
     .title-decoration span:nth-child(2) { animation-delay: 0.5s; }
@@ -180,7 +173,7 @@
     .title-decoration span:nth-child(4) { animation-delay: 0.3s; }
     .title-decoration span:nth-child(5) { animation-delay: 0.7s; }
 
-    /* RIGHT HALF: Picture with decorative emoji border */
+    /* RIGHT HALF */
     .right-half {
       display: flex;
       align-items: center;
@@ -191,28 +184,25 @@
       position: relative;
     }
 
-    /* emoji decorations around the picture - VISIBLE */
     .pic-emoji {
       position: absolute;
-      font-size: 2rem;
+      font-size: 2.2rem;
       opacity: 0.75;
-      filter: drop-shadow(0 2px 6px rgba(255, 120, 100, 0.3));
+      filter: drop-shadow(0 2px 8px rgba(255, 120, 100, 0.35));
     }
-    .pic-top { top: 20px; left: 50%; transform: translateX(-50%); animation: floatEmoji 3.5s infinite; }
-    .pic-bottom { bottom: 20px; left: 50%; transform: translateX(-50%); animation: floatEmoji 4s infinite 0.8s; }
-    .pic-left { top: 50%; left: 15px; transform: translateY(-50%); animation: twinkleEmoji 2.8s infinite; }
-    .pic-right { top: 50%; right: 15px; transform: translateY(-50%); animation: twinkleEmoji 3.2s infinite 0.5s; }
-    .pic-corner-tl { top: 10px; left: 10px; animation: spinEmoji 10s infinite linear; font-size: 1.6rem; }
-    .pic-corner-br { bottom: 10px; right: 10px; animation: spinEmoji 12s infinite reverse; font-size: 1.6rem; }
-    .pic-corner-tr { top: 10px; right: 10px; animation: floatEmoji 5s infinite; font-size: 1.5rem; }
-    .pic-corner-bl { bottom: 10px; left: 10px; animation: floatEmoji 5.5s infinite 0.5s; font-size: 1.5rem; }
+    .pic-top { top: 25px; left: 50%; transform: translateX(-50%); animation: floatEmoji 3.5s infinite; }
+    .pic-bottom { bottom: 25px; left: 50%; transform: translateX(-50%); animation: floatEmoji 4s infinite 0.8s; }
+    .pic-left { top: 50%; left: 20px; transform: translateY(-50%); animation: twinkleEmoji 2.8s infinite; }
+    .pic-right { top: 50%; right: 20px; transform: translateY(-50%); animation: twinkleEmoji 3.2s infinite 0.5s; }
+    .pic-corner-tl { top: 15px; left: 15px; animation: spinEmoji 10s infinite linear; font-size: 1.7rem; }
+    .pic-corner-br { bottom: 15px; right: 15px; animation: spinEmoji 12s infinite reverse; font-size: 1.7rem; }
 
     .hero-image {
       width: 100%;
       max-width: 520px;
       height: auto;
       border-radius: 48px;
-      box-shadow: 0 28px 40px -16px rgba(0, 0, 0, 0.25), 0 0 0 5px rgba(255, 200, 160, 0.3);
+      box-shadow: 0 28px 40px -16px rgba(0, 0, 0, 0.25), 0 0 0 6px rgba(255, 200, 160, 0.35);
       transition: transform 0.35s ease, box-shadow 0.3s;
       display: block;
       object-fit: cover;
@@ -222,10 +212,9 @@
 
     .hero-image:hover {
       transform: scale(1.02);
-      box-shadow: 0 35px 50px -18px rgba(255, 120, 80, 0.4), 0 0 0 8px rgba(255, 200, 160, 0.4);
+      box-shadow: 0 35px 50px -18px rgba(255, 120, 80, 0.4), 0 0 0 10px rgba(255, 200, 160, 0.45);
     }
 
-    /* click hint with emojis */
     .click-hint {
       grid-column: span 2;
       text-align: center;
@@ -235,7 +224,7 @@
       opacity: 0.8;
       letter-spacing: 1.5px;
       border-top: 2px dashed rgba(255, 180, 150, 0.6);
-      background: rgba(255, 250, 245, 0.8);
+      background: rgba(255, 250, 245, 0.9);
       font-weight: 500;
     }
 
@@ -245,8 +234,7 @@
       margin: 0 5px;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
+    @media (max-width: 950px) {
       .hero-card {
         grid-template-columns: 1fr;
       }
@@ -254,7 +242,7 @@
         grid-column: span 1;
       }
       .left-half, .right-half {
-        min-height: 400px;
+        min-height: auto;
         padding: 2rem;
       }
       .main-title {
@@ -263,25 +251,21 @@
       .hero-image {
         max-width: 380px;
       }
-      .floating-emoji {
-        font-size: 1.5rem;
-      }
     }
 
     @media (max-width: 600px) {
       body { padding: 1rem; }
       .main-title { font-size: 2.8rem; }
       .hero-image { max-width: 280px; }
-      .left-half, .right-half { padding: 1.5rem; min-height: 320px; }
+      .left-half, .right-half { padding: 1.5rem; }
       .title-decoration { font-size: 1.2rem; gap: 8px; }
-      .title-emoji, .pic-emoji { font-size: 1.2rem; }
-      .floating-emoji { font-size: 1.2rem; }
+      .floating-emoji { font-size: 1.3rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- VISIBLE DECORATIONS: floating emojis all around the page -->
+<!-- VISIBLE DECORATIONS -->
 <div class="floating-emoji emoji-1">🌸</div>
 <div class="floating-emoji emoji-2">💗</div>
 <div class="floating-emoji emoji-3">🎀</div>
@@ -295,9 +279,7 @@
 <div class="floating-emoji emoji-11">💗</div>
 <div class="floating-emoji emoji-12">✨</div>
 
-<!-- MAIN CARD: split layout -->
 <div class="hero-card" id="mainGateway">
-  <!-- LEFT HALF: Title with emoji decorations inside -->
   <div class="left-half">
     <div class="title-emoji title-emoji-1">🌸</div>
     <div class="title-emoji title-emoji-2">💗</div>
@@ -317,7 +299,6 @@
     </div>
   </div>
   
-  <!-- RIGHT HALF: Picture with emoji decorations around it -->
   <div class="right-half">
     <div class="pic-emoji pic-top">🌸</div>
     <div class="pic-emoji pic-bottom">💗</div>
@@ -325,8 +306,6 @@
     <div class="pic-emoji pic-right">✨</div>
     <div class="pic-emoji pic-corner-tl">💕</div>
     <div class="pic-emoji pic-corner-br">🌟</div>
-    <div class="pic-emoji pic-corner-tr">🌸</div>
-    <div class="pic-emoji pic-corner-bl">💖</div>
     
     <img src="images/picture3.png" class="hero-image" alt="Bloom" onerror="this.src='https://placehold.co/550x550/fce4ec/ff77aa?text=🌸💗'; this.onerror=null;">
   </div>
@@ -337,14 +316,14 @@
 </div>
 
 <script>
-  // Click anywhere on the card to navigate to the Different, but Fashion page
+  // UPDATED: Click anywhere now takes you to welcome-bloom.html
   const gateway = document.getElementById('mainGateway');
   if (gateway) {
     gateway.addEventListener('click', function(e) {
       this.style.transition = 'transform 0.1s ease';
       this.style.transform = 'scale(0.98)';
       setTimeout(() => {
-        window.location.href = 'Different, but Fashion.html';
+        window.location.href = 'welcome-bloom.html';
       }, 100);
     });
   }
