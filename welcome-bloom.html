@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>THE T-BLOOM · Welcome Bloom</title>
-  <!-- Softer fonts: Playfair Display for chic elegance, Poppins for clean text -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Soft, clean, simple fonts only - no dramatic cursive -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,7 +14,7 @@
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg, #fffaf5 0%, #ffeef4 100%);
       min-height: 100vh;
       display: flex;
@@ -51,8 +51,8 @@
     }
 
     @keyframes gentlePulse {
-      0%, 100% { filter: drop-shadow(0 0 2px rgba(255, 105, 180, 0.2)); }
-      50% { filter: drop-shadow(0 0 18px rgba(255, 160, 120, 0.5)); }
+      0%, 100% { filter: drop-shadow(0 0 2px rgba(255, 105, 180, 0.15)); }
+      50% { filter: drop-shadow(0 0 12px rgba(255, 160, 120, 0.3)); }
     }
 
     .emoji-1 { top: 5%; left: 3%; animation-duration: 5s; }
@@ -138,20 +138,22 @@
     .inner-5 { top: 50%; left: 15px; animation: twinkleEmoji 2.8s infinite; font-size: 1.5rem; }
     .inner-6 { top: 45%; right: 15px; animation: floatEmoji 3.5s infinite; font-size: 1.5rem; }
 
-    /* CHANGED: Softer, chic title - NOT cursive, using Playfair Display */
+    /* ===== SOFT, SIMPLE, NON-DRAMATIC, NON-CURSIVE TITLE ===== */
+    /* Using DM Serif Display - clean, elegant, soft, not dramatic */
     .welcome-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.8rem;
-      font-weight: 500;
+      font-family: 'DM Serif Display', serif;
+      font-size: 3.5rem;
+      font-weight: 400;
       font-style: normal;
-      background: linear-gradient(135deg, #e8a0b0, #f0b8a8, #d4a0a0);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
+      color: #c47a8e;
       margin-bottom: 1.5rem;
       line-height: 1.3;
-      letter-spacing: 1px;
+      letter-spacing: 0px;
       animation: gentlePulse 3s infinite alternate;
+    }
+
+    .gold-accent {
+      color: #e8a87c;
     }
 
     .message-line {
@@ -203,14 +205,12 @@
     }
 
     .editor-note .signature {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 500;
-      background: linear-gradient(125deg, #e8a0b0, #f0b8a8);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #e8a87c;
       margin-top: 0.3rem;
+      font-style: normal;
     }
 
     /* RIGHT HALF */
@@ -274,17 +274,13 @@
       font-weight: 700;
       transition: 0.25s;
       box-shadow: 0 6px 14px rgba(255, 140, 70, 0.3);
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
 
     .btn:hover {
       background: linear-gradient(95deg, #ffc05c, #ffa06a);
       transform: translateY(-3px);
       box-shadow: 0 12px 22px rgba(255, 140, 70, 0.45);
-    }
-
-    .gold-accent {
-      color: #e8a87c;
     }
 
     @media (max-width: 950px) {
@@ -299,7 +295,7 @@
         padding: 2rem;
       }
       .welcome-title {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
       }
       .hero-image {
         max-width: 380px;
@@ -311,7 +307,7 @@
 
     @media (max-width: 600px) {
       body { padding: 1rem; }
-      .welcome-title { font-size: 2rem; }
+      .welcome-title { font-size: 1.8rem; }
       .message-line { font-size: 0.85rem; }
       .hero-image { max-width: 280px; }
       .left-half, .right-half { padding: 1.5rem; }
@@ -345,7 +341,7 @@
     <div class="inner-emoji inner-5">💕</div>
     <div class="inner-emoji inner-6">🌟</div>
 
-    <!-- CHANGED: Softer, chic welcome title - NOT CURSIVE, using Playfair Display -->
+    <!-- SOFT, SIMPLE, NON-DRAMATIC TITLE - NO CURSIVE, NO ITALICS -->
     <h1 class="welcome-title">Welcome to <span class="gold-accent">THE T-BLOOM</span> 💕✨</h1>
     
     <p class="message-line"><span class="emoji-icon">🌸</span> where <span class="gold-text">vintage meets now</span> 🌸</p>
