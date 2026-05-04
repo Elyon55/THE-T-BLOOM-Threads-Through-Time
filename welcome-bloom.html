@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>THE T-BLOOM · Welcome Bloom</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Softer fonts: Playfair Display for chic elegance, Poppins for clean text -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -24,7 +25,7 @@
       overflow-x: hidden;
     }
 
-    /* ========== VISIBLE DECORATIONS: floating emojis all around ========== */
+    /* VISIBLE DECORATIONS */
     .floating-emoji {
       position: absolute;
       pointer-events: none;
@@ -67,7 +68,6 @@
     .emoji-11 { top: 45%; left: 88%; animation: floatEmoji 4.5s infinite; font-size: 1.7rem; }
     .emoji-12 { bottom: 10%; left: 15%; animation: twinkleEmoji 3.5s infinite; font-size: 1.5rem; }
 
-    /* large background decorative pattern */
     body::before {
       content: "🌸 💗 🎀 ✨ 💕 🌸 ✨ 🎀 💗 🌸";
       font-size: 200px;
@@ -91,7 +91,7 @@
       z-index: 0;
     }
 
-    /* MAIN SPLIT CARD - same layout as first page */
+    /* MAIN SPLIT CARD */
     .split-card {
       max-width: 1400px;
       width: 100%;
@@ -114,7 +114,7 @@
       border-color: rgba(255, 200, 160, 0.8);
     }
 
-    /* LEFT HALF: Welcome content with pink/gold theme */
+    /* LEFT HALF */
     .left-half {
       display: flex;
       flex-direction: column;
@@ -125,7 +125,6 @@
       position: relative;
     }
 
-    /* inner emoji decorations around content */
     .inner-emoji {
       position: absolute;
       font-size: 2rem;
@@ -139,19 +138,22 @@
     .inner-5 { top: 50%; left: 15px; animation: twinkleEmoji 2.8s infinite; font-size: 1.5rem; }
     .inner-6 { top: 45%; right: 15px; animation: floatEmoji 3.5s infinite; font-size: 1.5rem; }
 
+    /* CHANGED: Softer, chic title - NOT cursive, using Playfair Display */
     .welcome-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 4rem;
-      background: linear-gradient(125deg, #ff4fa3, #ff8eb5, #e8a87c, #ffb347);
+      font-family: 'Playfair Display', serif;
+      font-size: 3.8rem;
+      font-weight: 500;
+      font-style: normal;
+      background: linear-gradient(135deg, #e8a0b0, #f0b8a8, #d4a0a0);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
       margin-bottom: 1.5rem;
-      line-height: 1.2;
+      line-height: 1.3;
+      letter-spacing: 1px;
       animation: gentlePulse 3s infinite alternate;
     }
 
-    /* stylish message lines */
     .message-line {
       font-size: 1.1rem;
       margin: 0.8rem 0;
@@ -201,16 +203,17 @@
     }
 
     .editor-note .signature {
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.6rem;
-      background: linear-gradient(125deg, #ff4fa3, #ffb347);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      background: linear-gradient(125deg, #e8a0b0, #f0b8a8);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
       margin-top: 0.3rem;
     }
 
-    /* RIGHT HALF: Picture ONLY - larger, directly opposite, NOT in corner */
+    /* RIGHT HALF */
     .right-half {
       display: flex;
       align-items: center;
@@ -221,7 +224,6 @@
       position: relative;
     }
 
-    /* emoji decorations around picture (not covering it, just enhancing) */
     .pic-emoji {
       position: absolute;
       font-size: 2.2rem;
@@ -253,7 +255,6 @@
       box-shadow: 0 35px 50px -18px rgba(255, 120, 80, 0.4), 0 0 0 10px rgba(255, 200, 160, 0.45);
     }
 
-    /* bottom navigation buttons */
     .bottom-nav {
       grid-column: span 2;
       display: flex;
@@ -282,12 +283,10 @@
       box-shadow: 0 12px 22px rgba(255, 140, 70, 0.45);
     }
 
-    /* gold accent class */
     .gold-accent {
       color: #e8a87c;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 950px) {
       .split-card {
         grid-template-columns: 1fr;
@@ -300,7 +299,7 @@
         padding: 2rem;
       }
       .welcome-title {
-        font-size: 3rem;
+        font-size: 2.8rem;
       }
       .hero-image {
         max-width: 380px;
@@ -312,7 +311,7 @@
 
     @media (max-width: 600px) {
       body { padding: 1rem; }
-      .welcome-title { font-size: 2.2rem; }
+      .welcome-title { font-size: 2rem; }
       .message-line { font-size: 0.85rem; }
       .hero-image { max-width: 280px; }
       .left-half, .right-half { padding: 1.5rem; }
@@ -324,7 +323,6 @@
 </head>
 <body>
 
-<!-- VISIBLE DECORATIONS: floating emojis all around the page -->
 <div class="floating-emoji emoji-1">🌸</div>
 <div class="floating-emoji emoji-2">💗</div>
 <div class="floating-emoji emoji-3">🎀</div>
@@ -338,9 +336,7 @@
 <div class="floating-emoji emoji-11">💗</div>
 <div class="floating-emoji emoji-12">✨</div>
 
-<!-- MAIN SPLIT CARD: Welcome Bloom content on LEFT half, picture on RIGHT half -->
 <div class="split-card">
-  <!-- LEFT HALF: Welcome Bloom content with pink & gold theme -->
   <div class="left-half">
     <div class="inner-emoji inner-1">🌸</div>
     <div class="inner-emoji inner-2">💗</div>
@@ -349,6 +345,7 @@
     <div class="inner-emoji inner-5">💕</div>
     <div class="inner-emoji inner-6">🌟</div>
 
+    <!-- CHANGED: Softer, chic welcome title - NOT CURSIVE, using Playfair Display -->
     <h1 class="welcome-title">Welcome to <span class="gold-accent">THE T-BLOOM</span> 💕✨</h1>
     
     <p class="message-line"><span class="emoji-icon">🌸</span> where <span class="gold-text">vintage meets now</span> 🌸</p>
@@ -374,7 +371,6 @@
     </div>
   </div>
 
-  <!-- RIGHT HALF: picture4.png - LARGER, directly opposite title, NOT in corner -->
   <div class="right-half">
     <div class="pic-emoji pic-top">🌸</div>
     <div class="pic-emoji pic-bottom">💗</div>
@@ -385,7 +381,6 @@
     <img src="images/picture4.png" class="hero-image" alt="Fashion Bloom" onerror="this.src='https://placehold.co/550x550/fce4ec/ff77aa?text=🌸💗✨'; this.onerror=null;">
   </div>
 
-  <!-- bottom navigation buttons -->
   <div class="bottom-nav">
     <a href="index.html" class="btn">◀ Back to Home</a>
     <a href="Different, but Fashion.html" class="btn">Fashion Gallery →</a>
