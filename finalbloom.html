@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>THE T-BLOOM · Forever Blooming</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>THE T-BLOOM · Final Bloom</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,17 +14,17 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      min-height: 100vh;
       background: linear-gradient(145deg, #fff5f0 0%, #ffeef4 50%, #fff0f7 100%);
-      position: relative;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 2rem;
+      position: relative;
       overflow-x: hidden;
     }
 
-    /* ========== EXTENSIVE DECORATIONS: floating emojis, flowers, sparkles ========== */
+    /* VISIBLE DECORATIONS */
     .floating-emoji {
       position: absolute;
       pointer-events: none;
@@ -35,13 +35,13 @@
     }
 
     @keyframes floatEmoji {
-      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
       50% { transform: translateY(-20px) rotate(8deg); opacity: 1; }
     }
 
     @keyframes twinkleEmoji {
       0%, 100% { opacity: 0.5; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.2); }
+      50% { opacity: 1; transform: scale(1.15); }
     }
 
     @keyframes spinEmoji {
@@ -49,39 +49,22 @@
       100% { transform: rotate(360deg); }
     }
 
-    @keyframes floatFlower {
-      0%, 100% { transform: translateY(0px) translateX(0px); }
-      25% { transform: translateY(-15px) translateX(8px); }
-      50% { transform: translateY(-25px) translateX(0px); }
-      75% { transform: translateY(-15px) translateX(-8px); }
-    }
+    .emoji-1 { top: 5%; left: 3%; animation-duration: 5s; }
+    .emoji-2 { top: 12%; right: 5%; animation-duration: 7s; animation-delay: 0.5s; }
+    .emoji-3 { bottom: 15%; left: 4%; animation-duration: 6s; animation-delay: 1s; }
+    .emoji-4 { bottom: 20%; right: 6%; animation-duration: 5.5s; animation-delay: 0.3s; }
+    .emoji-5 { top: 30%; left: 2%; animation-duration: 8s; }
+    .emoji-6 { top: 55%; right: 3%; animation-duration: 4.5s; }
+    .emoji-7 { bottom: 40%; left: 7%; animation-duration: 6.5s; }
+    .emoji-8 { top: 70%; right: 8%; animation-duration: 5.8s; }
+    .emoji-9 { top: 20%; left: 10%; animation: twinkleEmoji 3s infinite; font-size: 1.5rem; }
+    .emoji-10 { bottom: 30%; right: 10%; animation: spinEmoji 10s infinite linear; font-size: 1.5rem; }
+    .emoji-11 { top: 45%; left: 88%; animation: floatEmoji 4.5s infinite; font-size: 1.6rem; }
+    .emoji-12 { bottom: 10%; left: 15%; animation: twinkleEmoji 3.5s infinite; font-size: 1.3rem; }
 
-    @keyframes subtlePulse {
-      0%, 100% { transform: scale(1); opacity: 0.7; }
-      50% { transform: scale(1.05); opacity: 1; }
-    }
-
-    /* scattered floating decorations */
-    .emoji-1 { top: 3%; left: 2%; animation-duration: 5s; font-size: 2.2rem; }
-    .emoji-2 { top: 8%; right: 3%; animation-duration: 7s; animation-delay: 0.5s; font-size: 2rem; }
-    .emoji-3 { bottom: 10%; left: 3%; animation-duration: 6s; animation-delay: 1s; font-size: 2.5rem; }
-    .emoji-4 { bottom: 15%; right: 4%; animation-duration: 5.5s; animation-delay: 0.3s; font-size: 2rem; }
-    .emoji-5 { top: 25%; left: 1%; animation-duration: 8s; font-size: 1.8rem; }
-    .emoji-6 { top: 45%; right: 2%; animation-duration: 4.5s; font-size: 2rem; }
-    .emoji-7 { bottom: 35%; left: 5%; animation-duration: 6.5s; font-size: 2rem; }
-    .emoji-8 { top: 70%; right: 5%; animation-duration: 5.8s; font-size: 1.9rem; }
-    .emoji-9 { top: 15%; left: 12%; animation: twinkleEmoji 3s infinite; font-size: 1.6rem; }
-    .emoji-10 { bottom: 25%; right: 10%; animation: spinEmoji 10s infinite linear; font-size: 1.8rem; }
-    .emoji-11 { top: 55%; left: 85%; animation: floatEmoji 4.5s infinite; font-size: 1.7rem; }
-    .emoji-12 { bottom: 8%; left: 18%; animation: twinkleEmoji 3.5s infinite; font-size: 1.6rem; }
-    .emoji-13 { top: 80%; left: 45%; animation: floatFlower 7s infinite; font-size: 2rem; }
-    .emoji-14 { top: 12%; left: 50%; animation: subtlePulse 4s infinite; font-size: 1.8rem; }
-    .emoji-15 { bottom: 45%; right: 15%; animation: floatFlower 6s infinite 1s; font-size: 1.9rem; }
-
-    /* large background decorative pattern */
     body::before {
-      content: "🌸 💗 🎀 ✨ 💕 🌸 ✨ 🎀 💗 🌸 🌷 💫 🌟";
-      font-size: 180px;
+      content: "🌸 💗 🎀 ✨ 💕 🌸 ✨ 🎀 💗 🌸";
+      font-size: 200px;
       position: absolute;
       bottom: -50px;
       left: -80px;
@@ -89,12 +72,11 @@
       pointer-events: none;
       white-space: nowrap;
       z-index: 0;
-      font-family: monospace;
     }
 
     body::after {
-      content: "✨ 💖 🌟 🎀 💕 ✨ 💗 🌸 ✨ 💖 🌷 💫 🌸";
-      font-size: 160px;
+      content: "✨ 💖 🌟 🎀 💕 ✨ 💗 🌸 ✨ 💖";
+      font-size: 190px;
       position: absolute;
       top: -40px;
       right: -70px;
@@ -103,7 +85,7 @@
       z-index: 0;
     }
 
-    /* main card container */
+    /* main card */
     .closing-card {
       max-width: 900px;
       width: 100%;
@@ -123,7 +105,6 @@
       box-shadow: 0 50px 75px -28px rgba(255, 100, 130, 0.45), 0 0 0 5px rgba(255, 200, 160, 0.5);
     }
 
-    /* inner content with decorative borders */
     .card-inner {
       padding: 3rem 2.5rem;
       position: relative;
@@ -138,37 +119,10 @@
       border-color: #ffb8a0;
       opacity: 0.6;
     }
-    .corner-tl {
-      top: 20px;
-      left: 20px;
-      border-width: 3px 0 0 3px;
-    }
-    .corner-tr {
-      top: 20px;
-      right: 20px;
-      border-width: 3px 3px 0 0;
-    }
-    .corner-bl {
-      bottom: 20px;
-      left: 20px;
-      border-width: 0 0 3px 3px;
-    }
-    .corner-br {
-      bottom: 20px;
-      right: 20px;
-      border-width: 0 3px 3px 0;
-    }
-
-    /* flower border decoration */
-    .flower-border {
-      position: absolute;
-      font-size: 1rem;
-      opacity: 0.5;
-    }
-    .flower-tl { top: 10px; left: 10px; animation: floatEmoji 4s infinite; }
-    .flower-tr { top: 10px; right: 10px; animation: floatEmoji 4s infinite 0.5s; }
-    .flower-bl { bottom: 10px; left: 10px; animation: floatEmoji 4s infinite 1s; }
-    .flower-br { bottom: 10px; right: 10px; animation: floatEmoji 4s infinite 1.5s; }
+    .corner-tl { top: 20px; left: 20px; border-width: 3px 0 0 3px; }
+    .corner-tr { top: 20px; right: 20px; border-width: 3px 3px 0 0; }
+    .corner-bl { bottom: 20px; left: 20px; border-width: 0 0 3px 3px; }
+    .corner-br { bottom: 20px; right: 20px; border-width: 0 3px 3px 0; }
 
     /* title section */
     .title-section {
@@ -205,7 +159,7 @@
       animation: floatEmoji 3s infinite;
     }
 
-    /* message list - stylish chic design */
+    /* message list */
     .message-list {
       margin: 2rem 0;
     }
@@ -306,16 +260,7 @@
       opacity: 0.7;
     }
 
-    .flower-row span:nth-child(1) { animation-delay: 0s; }
-    .flower-row span:nth-child(2) { animation-delay: 0.4s; }
-    .flower-row span:nth-child(3) { animation-delay: 0.8s; }
-    .flower-row span:nth-child(4) { animation-delay: 0.2s; }
-    .flower-row span:nth-child(5) { animation-delay: 0.6s; }
-    .flower-row span:nth-child(6) { animation-delay: 1s; }
-    .flower-row span:nth-child(7) { animation-delay: 0.3s; }
-    .flower-row span:nth-child(8) { animation-delay: 0.7s; }
-
-    /* navigation buttons */
+    /* navigation buttons - ONLY HOME BUTTON NOW */
     .nav-buttons {
       display: flex;
       justify-content: center;
@@ -354,7 +299,6 @@
       letter-spacing: 5px;
     }
 
-    /* responsive */
     @media (max-width: 650px) {
       body { padding: 1rem; }
       .card-inner { padding: 1.8rem; }
@@ -374,7 +318,7 @@
 </head>
 <body>
 
-<!-- EXTENSIVE DECORATIONS: floating emojis, flowers, sparkles -->
+<!-- VISIBLE DECORATIONS -->
 <div class="floating-emoji emoji-1">🌸</div>
 <div class="floating-emoji emoji-2">💗</div>
 <div class="floating-emoji emoji-3">🎀</div>
@@ -387,9 +331,6 @@
 <div class="floating-emoji emoji-10">🎀</div>
 <div class="floating-emoji emoji-11">💗</div>
 <div class="floating-emoji emoji-12">✨</div>
-<div class="floating-emoji emoji-13">🌷</div>
-<div class="floating-emoji emoji-14">💫</div>
-<div class="floating-emoji emoji-15">🌸</div>
 
 <div class="closing-card">
   <div class="card-inner">
@@ -398,12 +339,6 @@
     <div class="corner-border corner-tr"></div>
     <div class="corner-border corner-bl"></div>
     <div class="corner-border corner-br"></div>
-    
-    <!-- tiny flower borders -->
-    <div class="flower-border flower-tl">🌸</div>
-    <div class="flower-border flower-tr">🌷</div>
-    <div class="flower-border flower-bl">💗</div>
-    <div class="flower-border flower-br">✨</div>
 
     <!-- TITLE SECTION -->
     <div class="title-section">
@@ -419,7 +354,7 @@
       </div>
     </div>
 
-    <!-- MESSAGE LIST - all the information -->
+    <!-- MESSAGE LIST -->
     <div class="message-list">
       <div class="message-item">
         <div class="message-icon">🌍</div>
@@ -465,10 +400,9 @@
       <span>🌟</span>
     </div>
 
-    <!-- NAVIGATION BUTTONS -->
+    <!-- NAVIGATION BUTTONS - ONLY HOME BUTTON (REMOVED WELCOME BLOOM) -->
     <div class="nav-buttons">
-      <a href="index.html" class="btn">◀ Back to Home</a>
-      <a href="welcome-bloom.html" class="btn">Welcome Bloom →</a>
+      <a href="index.html" class="btn">🌸 Home Page 🌸</a>
     </div>
 
     <div class="sparkle-footer">
