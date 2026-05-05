@@ -15,11 +15,13 @@
     body {
       font-family: 'Poppins', sans-serif;
       min-height: 100vh;
+      /* FULL IMAGE VISIBLE - not zoomed in */
       background-image: url('images/picture5.png');
-      background-size: cover;
+      background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
+      background-color: #fff5f0;
       position: relative;
       display: flex;
       align-items: center;
@@ -27,7 +29,7 @@
       padding: 2rem;
     }
 
-    /* elegant overlay to make text readable */
+    /* soft pink and gold gradient overlay - keeps the theme */
     body::before {
       content: "";
       position: absolute;
@@ -35,29 +37,29 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 100%);
+      background: linear-gradient(135deg, rgba(255, 200, 180, 0.12) 0%, rgba(255, 180, 150, 0.06) 100%);
       pointer-events: none;
       z-index: 0;
     }
 
-    /* floating emojis decorations */
+    /* floating emojis decorations - pink and gold theme */
     .floating-emoji {
       position: absolute;
       pointer-events: none;
       z-index: 5;
-      font-size: 2rem;
-      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+      font-size: 1.6rem;
+      filter: drop-shadow(0 4px 8px rgba(255, 160, 120, 0.3));
       animation: floatEmoji 6s infinite ease-in-out;
     }
 
     @keyframes floatEmoji {
-      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
-      50% { transform: translateY(-20px) rotate(8deg); opacity: 1; }
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+      50% { transform: translateY(-18px) rotate(8deg); opacity: 1; }
     }
 
     @keyframes twinkleEmoji {
-      0%, 100% { opacity: 0.5; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.15); }
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.1); }
     }
 
     .emoji-1 { top: 5%; left: 3%; animation-duration: 5s; }
@@ -68,12 +70,12 @@
     .emoji-6 { top: 55%; right: 3%; animation-duration: 4.5s; }
     .emoji-7 { bottom: 40%; left: 7%; animation-duration: 6.5s; }
     .emoji-8 { top: 70%; right: 8%; animation-duration: 5.8s; }
-    .emoji-9 { top: 20%; left: 10%; animation: twinkleEmoji 3s infinite; font-size: 1.5rem; }
-    .emoji-10 { bottom: 30%; right: 10%; animation: twinkleEmoji 3.5s infinite; font-size: 1.5rem; }
+    .emoji-9 { top: 20%; left: 10%; animation: twinkleEmoji 3s infinite; font-size: 1.2rem; }
+    .emoji-10 { bottom: 30%; right: 10%; animation: twinkleEmoji 3.5s infinite; font-size: 1.2rem; }
 
-    /* main content container - pushed lower */
+    /* main content container - pushed LOWER on the page */
     .content-container {
-      max-width: 600px;
+      max-width: 460px;
       width: 100%;
       position: relative;
       z-index: 10;
@@ -81,39 +83,41 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-top: 15vh;
+      margin-top: 32vh;
     }
 
-    /* SMALLER QUOTE BOX - moved lower */
+    /* SMALLER QUOTE BOX - LIGHT PINK BACKGROUND */
     .quote-box {
-      background: rgba(255, 250, 245, 0.92);
-      backdrop-filter: blur(16px);
-      border-radius: 50px;
-      padding: 1.5rem 2rem;
-      box-shadow: 0 20px 35px -15px rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(255, 200, 180, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.7);
+      background: #ffe4e8;
+      backdrop-filter: blur(8px);
+      border-radius: 35px;
+      padding: 0.9rem 1.3rem;
+      box-shadow: 0 12px 25px -10px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(255, 200, 170, 0.5);
+      border: 1px solid rgba(255, 220, 200, 0.8);
       text-align: center;
       width: 100%;
       transition: transform 0.3s ease;
     }
 
     .quote-box:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
+      box-shadow: 0 15px 28px -12px rgba(0, 0, 0, 0.15), 0 0 0 2px rgba(255, 190, 150, 0.6);
+      background: #ffe0e6;
     }
 
     .quote-text {
-      font-size: 1.3rem;
-      line-height: 1.5;
-      color: #4a2e3c;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #8b5a6b;
       font-weight: 500;
       font-style: italic;
       font-family: 'Great Vibes', cursive;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
     }
 
     .quote-author {
-      margin-top: 0.7rem;
-      font-size: 0.95rem;
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
       color: #e8a87c;
       font-weight: 600;
     }
@@ -126,60 +130,60 @@
     .quote-decoration {
       display: flex;
       justify-content: center;
-      gap: 12px;
-      margin-top: 0.8rem;
-      font-size: 1rem;
+      gap: 10px;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
     }
 
     .quote-decoration span {
       animation: floatEmoji 3s infinite;
-      opacity: 0.8;
+      opacity: 0.7;
     }
 
     /* navigation buttons - moved lower */
     .nav-buttons {
       display: flex;
       justify-content: center;
-      gap: 1.2rem;
+      gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 2rem;
+      margin-top: 1.8rem;
     }
 
     .btn {
       background: linear-gradient(95deg, #ffb347, #ff8c5a);
-      padding: 8px 24px;
-      border-radius: 50px;
+      padding: 6px 20px;
+      border-radius: 40px;
       text-decoration: none;
       color: #3e2a2a;
       font-weight: 600;
       transition: 0.25s;
-      box-shadow: 0 6px 14px rgba(255, 140, 70, 0.3);
+      box-shadow: 0 4px 12px rgba(255, 140, 70, 0.25);
       font-family: 'Poppins', sans-serif;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }
 
     .btn:hover {
       background: linear-gradient(95deg, #ffc05c, #ffa06a);
       transform: translateY(-2px);
-      box-shadow: 0 10px 18px rgba(255, 140, 70, 0.4);
+      box-shadow: 0 8px 16px rgba(255, 140, 70, 0.35);
     }
 
     /* responsive */
     @media (max-width: 700px) {
       body { padding: 1rem; }
-      .content-container { margin-top: 10vh; }
-      .quote-text { font-size: 1rem; }
-      .quote-box { padding: 1rem 1.5rem; border-radius: 40px; }
-      .btn { padding: 6px 18px; font-size: 0.75rem; }
-      .floating-emoji { font-size: 1.3rem; }
+      .content-container { margin-top: 25vh; max-width: 350px; }
+      .quote-text { font-size: 0.8rem; }
+      .quote-box { padding: 0.7rem 1rem; border-radius: 30px; }
+      .btn { padding: 5px 14px; font-size: 0.65rem; }
+      .floating-emoji { font-size: 1.2rem; }
     }
 
-    @media (max-width: 480px) {
-      .quote-text { font-size: 0.85rem; }
-      .quote-box { padding: 0.8rem 1.2rem; }
+    @media (max-width: 550px) {
+      .content-container { margin-top: 20vh; max-width: 280px; }
+      .quote-text { font-size: 0.7rem; }
     }
   </style>
 </head>
@@ -198,7 +202,7 @@
 <div class="floating-emoji emoji-10">🎀</div>
 
 <div class="content-container">
-  <!-- SMALLER QUOTE BOX - NO TITLE BOX ABOVE IT -->
+  <!-- SMALL LIGHT PINK QUOTE BOX -->
   <div class="quote-box">
     <div class="quote-text">
       “We all dress differently, but we all express something true about ourselves.”
