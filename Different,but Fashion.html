@@ -71,7 +71,7 @@
     .emoji-10 { bottom: 30%; right: 10%; animation: twinkleEmoji 3.5s infinite; font-size: 1.2rem; }
 
     .content-container {
-      max-width: 420px;
+      max-width: 450px;
       width: 100%;
       position: relative;
       z-index: 10;
@@ -82,11 +82,11 @@
       margin-bottom: 8vh;
     }
 
-    .quote-box {
+    .text-box {
       background: #ffe0e8;
       backdrop-filter: blur(4px);
       border-radius: 35px;
-      padding: 0.9rem 1.3rem;
+      padding: 1rem 1.5rem;
       box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.1), 0 0 0 2px #ffd4c0, 0 0 0 4px rgba(255, 200, 170, 0.3);
       text-align: center;
       width: 100%;
@@ -94,42 +94,28 @@
       border: 1px solid rgba(255, 220, 190, 0.8);
     }
 
-    .quote-box:hover {
+    .text-box:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 22px -10px rgba(0, 0, 0, 0.15), 0 0 0 2px #ffc8b0;
     }
 
-    .quote-text {
-      font-size: 0.9rem;
-      line-height: 1.4;
+    .fashion-text {
+      font-size: 0.85rem;
+      line-height: 1.5;
       color: #8b5a6b;
-      font-weight: 500;
-      font-style: italic;
+      font-weight: 450;
       font-family: 'Poppins', sans-serif;
-      letter-spacing: 0.3px;
     }
 
-    .quote-author {
-      margin-top: 0.4rem;
-      font-size: 0.75rem;
-      color: #d49678;
-      font-weight: 600;
-    }
-
-    .quote-author::before {
-      content: "— ";
-      color: #e8a87c;
-    }
-
-    .quote-decoration {
+    .text-decoration {
       display: flex;
       justify-content: center;
       gap: 8px;
-      margin-top: 0.6rem;
+      margin-top: 0.8rem;
       font-size: 0.85rem;
     }
 
-    .quote-decoration span {
+    .text-decoration span {
       animation: floatEmoji 3s infinite;
       opacity: 0.7;
     }
@@ -166,16 +152,16 @@
 
     @media (max-width: 700px) {
       body { padding: 1rem; }
-      .content-container { margin-bottom: 6vh; max-width: 350px; }
-      .quote-text { font-size: 0.8rem; }
-      .quote-box { padding: 0.7rem 1rem; border-radius: 30px; }
+      .content-container { margin-bottom: 6vh; max-width: 370px; }
+      .fashion-text { font-size: 0.75rem; }
+      .text-box { padding: 0.8rem 1.2rem; border-radius: 30px; }
       .btn { padding: 5px 16px; font-size: 0.7rem; }
       .floating-emoji { font-size: 1.2rem; }
     }
 
     @media (max-width: 480px) {
-      .content-container { margin-bottom: 4vh; max-width: 300px; }
-      .quote-text { font-size: 0.7rem; }
+      .content-container { margin-bottom: 4vh; max-width: 320px; }
+      .fashion-text { font-size: 0.65rem; }
     }
   </style>
 </head>
@@ -193,12 +179,11 @@
 <div class="floating-emoji emoji-10">🎀</div>
 
 <div class="content-container">
-  <div class="quote-box">
-    <div class="quote-text">
-      “We all dress differently, but we all express something true about ourselves.”
+  <div class="text-box">
+    <div class="fashion-text">
+      Fashion evolves over time 🌸, shaped by different voices, cultures, and identities. This collection celebrates diverse styles and the ever-changing world of fashion 💗🎀
     </div>
-    <div class="quote-author">Unknown</div>
-    <div class="quote-decoration">
+    <div class="text-decoration">
       <span>✨</span>
       <span>🌸</span>
       <span>💗</span>
@@ -209,7 +194,6 @@
 
   <div class="nav-buttons">
     <a href="welcome-bloom.html" class="btn">◀ Back to Welcome</a>
-    <!-- CUTE NAME INSPIRED BY THE QUOTE - leads to twoworlds.html -->
     <a href="twoworlds.html" class="btn">Discover Two Worlds ✨</a>
   </div>
 </div>
